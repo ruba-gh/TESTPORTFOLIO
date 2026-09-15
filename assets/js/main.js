@@ -145,6 +145,30 @@
     if ('requestIdleCallback' in window) requestIdleCallback(play, {timeout:1200}); else setTimeout(play, 350);
   }
 
+  function initScrollReveal() {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+    const targets = document.querySelectorAll('.statement .shell, .section-head, .project-card, .about-grid, .capability, .contact-strip .shell, .case-section-grid, .full-media');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({target, isIntersecting}) => {
+        if (!isIntersecting) return;
+        target.classList.add('is-visible');
+        observer.unobserve(target);
+      });
+    }, {threshold: 0, rootMargin: '0px 0px -32px 0px'});
+    targets.forEach(target => {
+      // Keep initially visible content readable immediately.
+      if (target.getBoundingClientRect().top < window.innerHeight) return;
+      target.classList.add('reveal-pending');
+      observer.observe(target);
+    });
+    reducedMotion.addEventListener('change', event => {
+      if (!event.matches) return;
+      observer.disconnect();
+      targets.forEach(target => target.classList.add('is-visible'));
+    });
+  }
+
   function initContactForm() {
     const form = document.querySelector('[data-contact-form]');
     if (!form) return;
@@ -170,6 +194,7 @@
     });
   }
 
+  initScrollReveal();
   captureTranslatableContent();
   initLanguageSwitchers();
   initDrawer();
