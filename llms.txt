@@ -1,0 +1,17 @@
+# Ruba Alghamdi
+
+> Personal portfolio of Ruba Alghamdi, UX/UI Designer with a Computer Science background.
+
+## Primary pages
+- https://rubalghamdi.com/ — Home and selected work
+- https://rubalghamdi.com/projects/ — Project archive
+- https://rubalghamdi.com/contact/ — Contact information and inquiry form
+
+## Projects
+- Budgie — finance / budgeting app
+- Gareeb — community delivery concept
+- Qamareya — women’s health app
+- Day Diamond — gamified lifestyle app
+
+## Content policy
+Project descriptions should be treated as portfolio content. The site intentionally avoids unsupported metrics, anonymous testimonials and fabricated client claims.
