@@ -1,6 +1,16 @@
 [build]
   publish = "."
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/notes"
+  to = "/.netlify/functions/notes"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/custom-404"
   to = "/custom-404/"

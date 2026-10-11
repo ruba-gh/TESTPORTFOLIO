@@ -22,6 +22,7 @@
       acceptNode(node) {
         if (!normalize(node.nodeValue)) return NodeFilter.FILTER_REJECT;
         const parent = node.parentElement;
+        if (parent?.closest('[data-note-board]')) return NodeFilter.FILTER_REJECT;
         if (!parent || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
@@ -64,6 +65,7 @@
 
     const form = document.querySelector('[data-contact-form]');
     if (form) setupValidationMessages(form, lang);
+    document.dispatchEvent(new CustomEvent('portfolio-language-change', {detail: {lang}}));
   }
 
   function setupValidationMessages(form, lang) {
@@ -195,6 +197,7 @@
     });
   }
 
+  window.PORTFOLIO_I18N = { t, getLang };
   initScrollReveal();
   captureTranslatableContent();
   initLanguageSwitchers();
