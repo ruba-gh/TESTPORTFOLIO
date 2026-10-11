@@ -1,36 +1,52 @@
-# Portfolio artwork and typography
+# Projects, images and notes
 
-The site now uses a restrained off-white, charcoal and teal palette. Yellow, peach and blue are reserved for the public note wall. Body copy uses the supplied **Digi Cholak** font; headings use the existing self-hosted **Rubik** at weight 600. The supplied font attribution/licensing note is retained as `assets/fonts/Digi-Cholak-source.txt`.
+## Typography and layout
 
-## Image-led project pages
+Body copy now uses self-hosted Rubik at regular weight. Headings use the supplied Digi Cholak font. The supplied font source note is retained as `assets/fonts/Digi-Cholak-source.txt`. Decorative eyebrow labels and layout divider rules have been removed.
 
-Existing Budgie and Gareeb images are preserved and displayed uncropped at full width, immediately after the short project introduction. Qamareya and Day Diamond explicitly show placeholders until final screens are supplied.
+## Homepage categories
 
-Add your images to `assets/images/`, then edit `assets/js/project-media.js`:
+Home and Projects have three filters: **UX/UI**, **Design**, and **Websites**. Current documented projects are UX/UI. Other filters show clear empty states until actual projects are added.
+
+To classify a project card, edit its `data-category` attribute in `index.html` and `projects/index.html`:
+
+```html
+<a class="work-card" data-category="design" href="/projects/my-brand/">...</a>
+<a class="work-card" data-category="websites" href="/projects/my-website/">...</a>
+```
+
+A project may belong to more than one category: `data-category="ux-ui websites"`. Filters work with mobile swiping and arrow controls. The selected category is kept in the URL so reloads and copied links return to the same view.
+
+## Project image carousel
+
+Each detail page uses one bounded carousel, not a large image filling the page. It supports touch scrolling, previous/next buttons, keyboard arrows/Home/End, a position indicator and direct image dots. Click a genuine image to open it at full size. There is no automatic rotation.
+
+The existing cover is the first slide. Additional visuals are configured in `assets/js/project-media.js`. Budgie currently has one supplied visual, Gareeb has two; additional slides are clearly labeled placeholders. Qamareya and Day Diamond also retain placeholders until final screens are supplied.
+
+Put your images in `assets/images/`, then replace placeholder entries:
 
 ```js
-qamareya: {
-  cover: '/assets/images/qamareya-cover.webp',
+budgie: {
+  cover: null, // Optional new cover, also used on the project card.
   gallery: [
-    { src: '/assets/images/qamareya-flow.webp', alt: 'Cycle tracking flow', caption: 'From overview to detail.' },
-    { src: '/assets/images/qamareya-screens.webp', alt: 'Final interface screens' }
+    { src: '/assets/images/budgie-research.webp', alt: 'Budgeting research insights', caption: 'Research & process' },
+    { src: '/assets/images/budgie-screens.webp', alt: 'Final budget interface screens', caption: 'Interface details' }
   ]
 }
 ```
 
-Use WebP for lightweight images, preserve the original image proportions, and avoid screenshots containing private information. A `cover` replaces the project card art and the placeholder on its detail page; gallery images appear before the supporting project story. On mobile, the story is a single expandable section so the artwork takes priority. A `cover` also replaces the existing Budgie or Gareeb cover when supplied.
+Use WebP where possible, keep each image's original proportions, and write useful alt text. A `cover` path replaces the first slide and the project card artwork. Add as many gallery entries as the project needs; the carousel discovers its length automatically. The supporting project story is expandable on mobile so images get priority.
 
-## Shared visitor wall
+## Shared sticky-note wall
 
-- The home page shows four notes; `/wall/` shows the most recent 100 with a More notes button.
-- Visitors can post a 280-character message, optional name and paper color.
-- Hold a note for 650ms to reveal the small ×. Click × and enter **4321** to delete.
-- Keyboard users can hold Space, or use Shift+F10 on a focused note to reveal ×.
-- The password is verified in the Netlify Function, not by client JavaScript. Set `WALL_DELETE_PASSWORD` in Netlify if changing it later.
-- Netlify Blobs persists production notes across visitors and deployments. Deploy previews use a separate shared preview store.
-- Errors never pretend a note was saved. No localStorage-only guestbook fallback is used.
-- The privacy page explains that names and messages are public.
+- Home shows four notes; `/wall/` shows the most recent 100 with More notes pagination.
+- Visitors post up to 280 characters, an optional name and a paper color.
+- Hold a note for 650ms to reveal ×. Click × and enter **4321** to remove it.
+- Keyboard users can hold Space or press Shift+F10 on a focused note.
+- The password is verified server-side; change `WALL_DELETE_PASSWORD` in Netlify to change it.
+- Production notes persist in Netlify Blobs across visitors and deployments; previews use a separate store.
+- Failed saves retain the draft. There is no localStorage-only guestbook fallback.
 
-Netlify installs the `@netlify/blobs` dependency and bundles `netlify/functions/notes.mjs` automatically. No separate database key is needed. The wall requires Netlify hosting; an ordinary static file server cannot provide it. `npm test` checks server-side posting, shared reads, password enforcement, invalid inputs and concurrent writes. Use `npx netlify dev` for a local wall with Netlify's development storage.
+Run `npm test` for the API tests. Use `npx netlify dev` to preview with development storage. The wall requires Netlify; an ordinary static server previews layouts but cannot provide shared persistence. The real deployment must be checked before claiming live storage or contact form delivery is verified.
 
-Optional future drawings: a simple brand mark, custom service icons, project cover art, social sharing image (1200×630), and favicon. The site works without adding any of them. Use versioned filenames for changed artwork because `/assets/*` is cached for one year.
+Use versioned asset filenames for updates because assets are cached for one year.
