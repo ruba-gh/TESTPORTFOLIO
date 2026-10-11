@@ -1,41 +1,36 @@
-# Your drawings, your gallery
+# Portfolio artwork and typography
 
-Edit **assets/js/artwork.js** to point at your exported artwork. Everything already has a working placeholder; you can replace one item at a time.
+The site now uses a restrained off-white, charcoal and teal palette. Yellow, peach and blue are reserved for the public note wall. Body copy uses the supplied **Digi Cholak** font; headings use the existing self-hosted **Rubik** at weight 600. The supplied font attribution/licensing note is retained as `assets/fonts/Digi-Cholak-source.txt`.
 
-| Asset | Recommended export | Notes |
-| --- | --- | --- |
-| Telephone | Transparent GIF, roughly 760 × 580 | Set `telephone` to its path. Keep its visible shape inside the canvas. The CSS wiggle switches off for GIFs. |
-| Still telephone | Transparent PNG or SVG, same canvas | Set `telephoneStill`. This version appears when a visitor prefers reduced motion. |
-| Three frames | Transparent PNG or SVG, 1200 × 1020 | Match the proportions of the supplied 400 × 340 SVGs. The clear opening is x=120, y=120, width=960, height=780 at 3× resolution. Keep both the opening and outside transparent. |
-| Logo | Transparent SVG or PNG, square | Displayed at 40 × 40, 32 × 32 on mobile. Keep the name next to it readable. |
-| Custom icons | SVG or transparent PNG, square | Five slots: arrow, design, code, identity, mail. Simple readable strokes work best at 24–32px. |
-| Project paintings | WebP or PNG, preferably 960 × 780 | Existing Budgie and Gareeb visuals are used. Optional `projectArtwork` slots replace Qamareya and Day Diamond illustration placeholders. |
+## Image-led project pages
 
-Put your files in `assets/illustrations/` with simple filenames. For example:
+Existing Budgie and Gareeb images are preserved and displayed uncropped at full width, immediately after the short project introduction. Qamareya and Day Diamond explicitly show placeholders until final screens are supplied.
+
+Add your images to `assets/images/`, then edit `assets/js/project-media.js`:
 
 ```js
-telephone: '/assets/illustrations/ruba-phone.gif',
-telephoneStill: '/assets/illustrations/ruba-phone-still.png',
-frames: [
-  '/assets/illustrations/my-frame-1.png',
-  '/assets/illustrations/my-frame-2.png',
-  '/assets/illustrations/my-frame-3.png'
-],
+qamareya: {
+  cover: '/assets/images/qamareya-cover.webp',
+  gallery: [
+    { src: '/assets/images/qamareya-flow.webp', alt: 'Cycle tracking flow', caption: 'From overview to detail.' },
+    { src: '/assets/images/qamareya-screens.webp', alt: 'Final interface screens' }
+  ]
+}
 ```
 
-The three frame styles are shuffled across projects once per tab, with all three represented. Moving between Gallery and About does not reshuffle them. A newly opened tab may produce a different arrangement.
+Use WebP for lightweight images, preserve the original image proportions, and avoid screenshots containing private information. A `cover` replaces the project card art and the placeholder on its detail page; gallery images appear before the supporting project story. On mobile, the story is a single expandable section so the artwork takes priority. A `cover` also replaces the existing Budgie or Gareeb cover when supplied.
 
-The phone sits in the layout beside the gallery guide; it never floats over a project. Mobile visitors swipe the wall horizontally or use the previous/next buttons. Every painting is an ordinary link to the existing case study, and About is also accessible through the navigation. On mobile, Background and Services use accessible tabs with contact always below; without JavaScript both sections remain readable.
+## Shared visitor wall
 
-## Other optional artwork
+- The home page shows four notes; `/wall/` shows the most recent 100 with a More notes button.
+- Visitors can post a 280-character message, optional name and paper color.
+- Hold a note for 650ms to reveal the small ×. Click × and enter **4321** to delete.
+- Keyboard users can hold Space, or use Shift+F10 on a focused note to reveal ×.
+- The password is verified in the Netlify Function, not by client JavaScript. Set `WALL_DELETE_PASSWORD` in Netlify if changing it later.
+- Netlify Blobs persists production notes across visitors and deployments. Deploy previews use a separate shared preview store.
+- Errors never pretend a note was saved. No localStorage-only guestbook fallback is used.
+- The privacy page explains that names and messages are public.
 
-- Qamareya and Day Diamond cover illustrations: add their paths in `projectArtwork`.
-- Social sharing image: replace `assets/images/og-ruba.png` to match your final museum identity (1200 × 630).
-- Browser tab icon: replace `favicon.svg` and `favicon-64.png` with your mark.
-- A wall texture: optional; keep it faint so labels retain good contrast. The current wall is CSS with no image dependency.
+Netlify installs the `@netlify/blobs` dependency and bundles `netlify/functions/notes.mjs` automatically. No separate database key is needed. The wall requires Netlify hosting; an ordinary static file server cannot provide it. `npm test` checks server-side posting, shared reads, password enforcement, invalid inputs and concurrent writes. Use `npx netlify dev` for a local wall with Netlify's development storage.
 
-All content stays usable without JavaScript: the links, project art, default frames, and About page are rendered as HTML. JavaScript adds random frame assignments, language switching, editable artwork paths, and mobile gallery controls.
-
-## Preview
-
-Run `python -m http.server 8000` from the repository, then open `http://localhost:8000`. Test the site at mobile width and in Arabic after replacing your files. Use versioned filenames for updated artwork because the hosting configuration caches assets for one year.
+Optional future drawings: a simple brand mark, custom service icons, project cover art, social sharing image (1200×630), and favicon. The site works without adding any of them. Use versioned filenames for changed artwork because `/assets/*` is cached for one year.
