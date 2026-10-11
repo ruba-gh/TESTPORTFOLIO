@@ -19,6 +19,9 @@ The code package is complete, but the site must not be called publicly launch-re
 
 - English and Arabic copy are centralized under `/locales/en.js` and `/locales/ar.js`.
 - The language preference persists with `localStorage`; Arabic switches the shared interface to RTL without duplicating pages.
-- Mobile navigation collapses below 900px into an accessible side drawer with focus trapping, Escape-to-close, overlay close, scroll lock, and focus return.
+- The two navigation links remain visible on mobile, with the language switch available directly in the header.
 - Project detail pages no longer contain previous/next project navigation; they end with a simple Back to Projects action.
-- The home hero uses a locally generated, non-AI abstract blue motion texture (`/assets/video/hero-bg.webm` with MP4 fallback). It is intentionally deferred on desktop and replaced by its static poster on mobile and for `prefers-reduced-motion` users.
+- Home and Projects now use an illustrated museum gallery; the former hero video is not loaded.
+- The compact navigation links directly to Gallery and About & Contact.
+- Mobile gallery browsing uses horizontal scroll snapping, with previous/next controls when JavaScript is available.
+- See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) and `assets/js/artwork.js` for replacing the phone, three frames, logo, icons and project illustration placeholders.

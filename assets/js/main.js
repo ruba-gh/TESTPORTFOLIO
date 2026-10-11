@@ -4,7 +4,8 @@
   const defaultLang = 'en';
   const normalize = value => String(value || '').replace(/\s+/g, ' ').trim();
   const getLang = () => {
-    const saved = localStorage.getItem(storageKey);
+    let saved;
+    try { saved = localStorage.getItem(storageKey); } catch (_) {}
     return saved === 'ar' || saved === 'en' ? saved : defaultLang;
   };
   const t = (value, lang = getLang()) => {
@@ -29,8 +30,8 @@
     while ((node = walker.nextNode())) {
       baseTextNodes.push({node, value: normalize(node.nodeValue)});
     }
-    document.querySelectorAll('[aria-label],[title],[placeholder]').forEach(el => {
-      ['aria-label','title','placeholder'].forEach(attr => {
+    document.querySelectorAll('[aria-label],[title],[placeholder],[alt]').forEach(el => {
+      ['aria-label','title','placeholder','alt'].forEach(attr => {
         if (el.hasAttribute(attr)) baseAttrs.push({el, attr, value: normalize(el.getAttribute(attr))});
       });
     });
@@ -41,7 +42,7 @@
 
   function setLanguage(lang) {
     if (!LOCALES[lang]) lang = defaultLang;
-    localStorage.setItem(storageKey, lang);
+    try { localStorage.setItem(storageKey, lang); } catch (_) {}
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.body.classList.toggle('rtl', lang === 'ar');
