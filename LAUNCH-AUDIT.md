@@ -1,36 +1,19 @@
-# Launch / Production Audit
+# Tile portfolio verification
 
-**Build status:** implementation complete; public launch is **blocked by external deployment verification**.
+## Verified locally
 
-## Passed in package
-- Primary navigation limited to Home / Projects / Contact.
-- Home, projects archive, four real project routes, contact, privacy, terms, cookies, refund, sources, custom 404 and root 404 exist.
-- No default framework branding or placeholder framework content.
-- Favicon, OG image, unique titles/descriptions, canonicals, robots.txt, sitemap.xml, llms.txt and structured data included.
-- Semantic HTML, skip link, visible focus, keyboard links/forms, real labels, consent checkbox, reduced-motion CSS, responsive breakpoints, 320px support.
-- No analytics, ads, tracking pixels, third-party embeds or non-essential cookie code. No cookie banner is shown for this configuration.
-- Contact form has explicit loading/success/error states and a honeypot; backend is configured for Netlify Forms.
-- No anonymous testimonials, invented performance metrics, fake clients or fabricated outcomes.
-- Responsive WebP and AVIF project media generated.
-- No production source maps or framework bundle; only one small first-party JavaScript file.
-- Security headers supplied through netlify.toml.
+- Fresh reference-led color-tile design, without the previous note wall, filters, museum graphics, handwritten font or hero video.
+- Browser layouts at 320, 390, 768 and 1440px with no horizontal page overflow or tile overlap.
+- English and Arabic content, direction switching, translated image labels and long-title wrapping.
+- Home tile links to Work, About, Contact and services; all four existing case-study routes are preserved.
+- Genuine image presentation, meaningful missing-visual states, accessible image controls when multiple images exist, and optional native-size image opening.
+- Contact success/error states tested with mocked responses; failed submission retains the inquiry.
+- Self-hosted font, reduced-motion hover behavior, native keyboard focus, skip link and CSP-compatible first-party scripts/styles.
+- Sharing image and favicon generated from the actual rendered design/SVG.
+- JavaScript syntax, internal paths, SVG XML and sitemap validation.
 
-## External launch blockers
-1. Deploy this exact build and connect `rubalghamdi.com`; verify DNS, HTTPS and final canonical URL behavior.
-2. Confirm Netlify is the deployed hosting/form processor (or update code + legal pages to the actual provider).
-3. Send a real contact-form test and confirm delivery/retention settings.
-4. Confirm publication/licensing rights for every final project image.
-5. Re-crawl the deployed site for broken links, deployed 404 behavior, CSP errors and final production headers.
-6. If direct paid services, checkout, analytics, ad tech or embeds are added later, repeat the privacy/cookie/e-commerce review before enabling them.
+## Live deployment checks still needed
 
-## Schema decision
-LocalBusiness/ProfessionalService schema is intentionally not included. The prompt requires factual schema only, while sufficient verified business registration/address/telephone/opening-hour data was not available. Publishing a fabricated LocalBusiness entity would fail the no-invention requirement.
+Verify Netlify form delivery, hosting headers, redirects, domain/TLS and the deployed canonical URLs. Local browser checks do not establish production delivery or deployment health. Final project visual publication rights and any missing screenshots remain owner-supplied inputs.
 
-## 7 September 2026 — localization/mobile revision
-
-- Added EN/AR localization files and runtime direction switching.
-- Added accessible mobile drawer navigation and language control.
-- Added mobile breakpoints specifically covering 320, 375, 390, 430, and 768px behavior.
-- Removed adjacent-project previous/next navigation from all case studies.
-- Added an optimized self-contained hero motion asset: 960×540, 12 fps, ~18 KB WebM / ~76 KB MP4 plus ~22 KB poster. Video sources are not loaded on <=680px or when reduced motion is preferred.
-- Static checks confirm all 14 HTML routes include localization scripts and the accessible drawer structure; all project pages have no previous/next navigation.
+The removed note-wall code no longer serves new posts or deletions. No external stored visitor data was deleted during this revision.

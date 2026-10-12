@@ -1,24 +1,21 @@
 # Ruba Alghamdi — Portfolio
 
-A quiet, bilingual portfolio with image-led case studies and a shared visitor note wall. Static HTML/CSS and small browser scripts; a Netlify Function provides the note wall API.
+A fresh portfolio inspired by the supplied black-background, colored-tile reference. The layout uses a coordinated grid, warm colors, rounded forms, bold SVG icons and readable self-hosted Rubik typography. Tile spans follow the content: identity and featured work receive more space, while navigation and services stay compact.
 
-## Run and verify
+## Preview
 
-- `npm ci` installs the server dependency.
-- `npm test` runs the note wall API tests.
-- `npx netlify dev` serves the site and a local Netlify Blobs store.
-- An ordinary static server previews the design, but the note wall requires the function API.
+Run `python -m http.server 8000` from the repository and open `http://localhost:8000`. There is no build step or runtime framework dependency. Netlify publishes the repository root using `netlify.toml`.
 
-## Deploy
+Home links directly to the four existing projects, About, Contact and services. Projects uses a focused artwork grid; About carries the same tile vocabulary. Project pages use genuine supplied images and concise supporting copy. Qamareya and Day Diamond retain clearly identified missing-visual states, rather than fabricated screenshots.
 
-Connect the repository to Netlify using `netlify.toml`. Netlify detects and bundles `netlify/functions/notes.mjs`; the API is `/api/notes`. Production notes use a site-wide `portfolio-visitor-notes` store with strong consistency. Deploy previews use `portfolio-visitor-notes-preview`, separate from production.
+## Content and artwork
 
-The note deletion password defaults to the requested **4321** and can be changed through `WALL_DELETE_PASSWORD` in Netlify. It is checked on the server. Function rate limiting is 30 requests per minute per IP/domain, and input is bounded. Notes are plain text, rendered with `textContent`.
+- Shared English/Arabic strings: `locales/en.js` and `locales/ar.js`.
+- Design tokens, tile grid, page layouts and responsive rules: `assets/css/tiles.css`.
+- Consistent icon family: `assets/icons/`.
+- Optional cover replacements and additional real project images: `assets/js/project-media.js`.
+- See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) for customization.
 
-The contact form remains configured for Netlify Forms. Form delivery, domain/TLS and the shared wall must be verified on the real deployment before claiming it is launch-ready.
+The previous note wall, password API, category filters, handwritten font, museum graphics and hero video are removed from the active site. Old `/wall/` links redirect to Home. No external visitor data was deleted.
 
-## Content and images
-
-English and Arabic strings are under `locales/`. Rubik is used for body text; the supplied Digi Cholak font is used for headings. See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) for classifying projects, adding carousel images, replacing placeholders and operating the wall.
-
-No analytics, advertising, tracking pixels, fabricated testimonials, or fabricated product screenshots are included.
+The contact form retains Netlify Forms support. Live form delivery, domain/TLS and deployment must be verified on Netlify before claiming the site is launch-ready. There is no analytics, advertising or fabricated testimonial content.
