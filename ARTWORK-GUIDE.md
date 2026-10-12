@@ -1,52 +1,39 @@
-# Projects, images and notes
+# Color-tile portfolio guide
 
-## Typography and layout
+## Direction
 
-Body copy now uses self-hosted Rubik at regular weight. Headings use the supplied Digi Cholak font. The supplied font source note is retained as `assets/fonts/Digi-Cholak-source.txt`. Decorative eyebrow labels and layout divider rules have been removed.
+The uploaded reference informed the black canvas, warm flat colors, rounded tiles and bold black symbols. The design-reference guide informed the consistent motif family, deliberate content hierarchy, purposeful tile spans and separate verification of mobile and Arabic layouts.
 
-## Homepage categories
+The actual tokens are in `assets/css/tiles.css`. Coral introduces Ruba, lilac supports personal context, yellow marks contact/navigation, and each project has an assigned color. Rubik is self-hosted; Arabic uses suitable system fallbacks where the font lacks glyphs.
 
-Home and Projects have three filters: **UX/UI**, **Design**, and **Websites**. Current documented projects are UX/UI. Other filters show clear empty states until actual projects are added.
+## Homepage
 
-To classify a project card, edit its `data-category` attribute in `index.html` and `projects/index.html`:
+`index.html` uses a four-column desktop grid and a two-column phone grid. Identity and Budgie span two columns because their text and imagery need more room. Every navigational tile is a normal link; hover effects respect reduced motion. There are no filters, note-wall features or randomized decorations.
 
-```html
-<a class="work-card" data-category="design" href="/projects/my-brand/">...</a>
-<a class="work-card" data-category="websites" href="/projects/my-website/">...</a>
-```
+Edit project names and descriptions in both `index.html` and `projects/index.html`. Keep captions concise; let the work and color carry the identity. Add new projects using the same tile classes and an actual project URL. Keep the same icon geometry instead of introducing unrelated doodles or emoji.
 
-A project may belong to more than one category: `data-category="ux-ui websites"`. Filters work with mobile swiping and arrow controls. The selected category is kept in the URL so reloads and copied links return to the same view.
+## Real project images
 
-## Project image carousel
+Budgie and Gareeb use the supplied repository images. Qamareya and Day Diamond use conceptual cover symbols, and their detail pages explicitly identify missing final visuals. Do not replace these with invented app screenshots.
 
-Each detail page uses one bounded carousel, not a large image filling the page. It supports touch scrolling, previous/next buttons, keyboard arrows/Home/End, a position indicator and direct image dots. Click a genuine image to open it at full size. There is no automatic rotation.
-
-The existing cover is the first slide. Additional visuals are configured in `assets/js/project-media.js`. Budgie currently has one supplied visual, Gareeb has two; additional slides are clearly labeled placeholders. Qamareya and Day Diamond also retain placeholders until final screens are supplied.
-
-Put your images in `assets/images/`, then replace placeholder entries:
+Put additional images in `assets/images/` and edit `assets/js/project-media.js`:
 
 ```js
 budgie: {
-  cover: null, // Optional new cover, also used on the project card.
+  cover: '/assets/images/budgie-cover.webp',
   gallery: [
-    { src: '/assets/images/budgie-research.webp', alt: 'Budgeting research insights', caption: 'Research & process' },
-    { src: '/assets/images/budgie-screens.webp', alt: 'Final budget interface screens', caption: 'Interface details' }
+    { src: '/assets/images/budgie-process.webp', alt: 'Budget research insights', caption: 'Research & process' },
+    { src: '/assets/images/budgie-screens.webp', alt: 'Final budget interface screens', caption: 'Interface screens' }
   ]
 }
 ```
 
-Use WebP where possible, keep each image's original proportions, and write useful alt text. A `cover` path replaces the first slide and the project card artwork. Add as many gallery entries as the project needs; the carousel discovers its length automatically. The supporting project story is expandable on mobile so images get priority.
+A cover replaces the first project-page image and its homepage card image, including conceptual cover symbols. Gallery entries appear in the project's image area with accessible controls only when multiple visuals are present. Genuine images open at native size when clicked. Keep each image's original proportions and use descriptive alt text.
 
-## Shared sticky-note wall
+## Localization and contact
 
-- Home shows four notes; `/wall/` shows the most recent 100 with More notes pagination.
-- Visitors post up to 280 characters, an optional name and a paper color.
-- Hold a note for 650ms to reveal ×. Click × and enter **4321** to remove it.
-- Keyboard users can hold Space or press Shift+F10 on a focused note.
-- The password is verified server-side; change `WALL_DELETE_PASSWORD` in Netlify to change it.
-- Production notes persist in Netlify Blobs across visitors and deployments; previews use a separate store.
-- Failed saves retain the draft. There is no localStorage-only guestbook fallback.
+Add Arabic equivalents for new text in `locales/ar.js`. Check long Arabic titles at phone width, and keep directional arrows meaningful in RTL. The shared language switch persists the visitor's choice.
 
-Run `npm test` for the API tests. Use `npx netlify dev` to preview with development storage. The wall requires Netlify; an ordinary static server previews layouts but cannot provide shared persistence. The real deployment must be checked before claiming live storage or contact form delivery is verified.
+Contact uses Netlify Forms, with inline errors and native validation. Verify actual delivery on the deployed site; a local static preview can only test the user interface.
 
-Use versioned asset filenames for updates because assets are cached for one year.
+Use versioned filenames when replacing cached assets. The retired note-wall source and API are removed from this build; existing remote stored notes were not modified.

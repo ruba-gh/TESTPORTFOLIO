@@ -1,27 +1,22 @@
 /* Add images here. The existing cover is slide one; gallery entries become additional slides. */
 window.PORTFOLIO_PROJECT_MEDIA = {
-  budgie: { cover: null, gallery: [
-    { placeholder: 'Research & process', caption: 'Add your process images here.' },
-    { placeholder: 'Interface details', caption: 'Add final screens and close-ups here.' }
-  ] },
+  budgie: { cover: null, gallery: [] },
   gareeb: { cover: null, gallery: [
-    { src: '/assets/images/gareeb-ui-1920.webp', alt: 'Gareeb interface screens', caption: 'Interface screens' },
-    { placeholder: 'Research & process', caption: 'Add your process images here.' }
+    { src: '/assets/images/gareeb-ui-1920.webp', alt: 'Gareeb interface screens', caption: 'Interface screens' }
   ] },
-  qamareya: { cover: null, gallery: [
-    { placeholder: 'Research & process', caption: 'Add your process images here.' },
-    { placeholder: 'Interface details', caption: 'Add final screens and close-ups here.' }
-  ] },
-  'day-diamond': { cover: null, gallery: [
-    { placeholder: 'Research & process', caption: 'Add your process images here.' },
-    { placeholder: 'Interface details', caption: 'Add final screens and close-ups here.' }
-  ] }
+  qamareya: { cover: null, gallery: [] },
+  'day-diamond': { cover: null, gallery: [] }
 };
 (() => {
   const t = value => window.PORTFOLIO_I18N?.t(value) || value;
   Object.entries(window.PORTFOLIO_PROJECT_MEDIA).forEach(([slug,media]) => {
     if (media.cover) {
-      const targets=[document.querySelector(`[data-case-cover="${slug}"]`),document.querySelector(`.work-card[href="/projects/${slug}/"] .work-image`)].filter(Boolean);
+      document.querySelectorAll(`.project-tile[href="/projects/${slug}/"]`).forEach(tile=>{
+        if(tile.querySelector('.tile-project-art'))return;
+        const art=document.createElement('div');art.className='tile-project-art';
+        const symbol=tile.querySelector('.project-symbol');if(symbol)symbol.replaceWith(art);else tile.querySelector('.tile-caption').before(art);
+      });
+      const targets=[document.querySelector(`[data-case-cover="${slug}"]`),document.querySelector(`.project-tile[href="/projects/${slug}/"] .tile-project-art`)].filter(Boolean);
       targets.forEach(target=>{const image=document.createElement('img');image.src=media.cover;image.alt=slug+' project artwork';image.decoding='async';target.replaceChildren(image);});
     }
     const carousel=document.querySelector(`[data-case-carousel="${slug}"]`);
@@ -61,7 +56,7 @@ window.PORTFOLIO_PROJECT_MEDIA = {
       prev.disabled=current===0;next.disabled=current===slides.length-1;
       [...dots.children].forEach((dot,i)=>dot.setAttribute('aria-current',String(i===current)));
     };
-    controls.hidden=slides.length<2;dots.hidden=slides.length<2;
+    controls.hidden=slides.length<2;dots.hidden=slides.length<2;carousel.querySelector('.carousel-hint').hidden=slides.length<2;
     prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));track.addEventListener('scroll',update,{passive:true});
     track.addEventListener('keydown',event=>{
       if(event.target!==track || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;

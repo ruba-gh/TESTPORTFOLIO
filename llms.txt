@@ -5,6 +5,7 @@
 ## Primary pages
 - https://rubalghamdi.com/ — Home and selected work
 - https://rubalghamdi.com/projects/ — Project archive
+- https://rubalghamdi.com/about/ — Background, services and toolkit
 - https://rubalghamdi.com/contact/ — Contact information and inquiry form
 
 ## Projects
