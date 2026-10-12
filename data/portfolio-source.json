@@ -1,0 +1,224 @@
+{
+  "retrieved": "2026-10-12",
+  "url": "https://rubalghamdi.com/js/data.js",
+  "projects": [
+    {
+      "id": "budgie-budgeting-app",
+      "type": {
+        "en": "Finance App",
+        "ar": "تطبيق مالي"
+      },
+      "title": {
+        "en": "Budgie",
+        "ar": "بدجي"
+      },
+      "cardText": {
+        "en": "A smart budgeting app that supports daily spending decisions with clear real-time guidance.",
+        "ar": "تطبيق ميزانية ذكي يساعد المستخدم يتابع مصروفاته ويتخذ قرارات مالية أوضح في الوقت الفعلي."
+      },
+      "detailDesc": {
+        "en": "A smart budgeting app designed to make expense tracking easier and support healthier spending habits.",
+        "ar": "تطبيق ميزانية ذكي صمم لتسهيل تتبع المصاريف ودعم عادات إنفاق صحية أكثر."
+      },
+      "overview": {
+        "en": "Budgie was created to support adults in Saudi Arabia who want better financial stability but struggle with consistency, impulsive spending, and manual budgeting. The app reduces the effort of tracking expenses by automatically recording and categorizing spending, giving users clear insights, budget alerts, and real-time guidance before they pay.",
+        "ar": "صمم بدجي لدعم البالغين في السعودية ممن يرغبون في استقرار مالي أفضل، لكنهم يواجهون صعوبة في الاستمرارية، قرارات الإنفاق السريعة، والميزانية اليدوية. يقلل التطبيق جهد تتبع المصاريف من خلال تسجيلها وتصنيفها تلقائيا، مع تقديم رؤى واضحة، تنبيهات للميزانية، وتوجيه فوري قبل الدفع."
+      },
+      "role": {
+        "en": "UX/UI Design",
+        "ar": "تصميم تجربة وواجهات"
+      },
+      "tools": [
+        "Figma",
+        "SwiftUI"
+      ],
+      "deliverables": {
+        "en": "Research, Budget Flow, UI Screens, Prototype",
+        "ar": "بحث، مسار الميزانية، شاشات واجهة، نموذج تفاعلي"
+      },
+      "tags": [],
+      "cover": "assets/budgie1.png",
+      "images": [
+        {
+          "src": "assets/budgie1.png",
+          "alt": {
+            "en": "Budgie budgeting app screen",
+            "ar": "شاشة تطبيق بدجي للميزانية"
+          }
+        },
+        {
+          "src": "assets/budgie2.png",
+          "alt": {
+            "en": "Second Budgie budgeting app screen",
+            "ar": "الشاشة الثانية لتطبيق بدجي للميزانية"
+          }
+        }
+      ],
+      "prototypeUrl": "https://www.figma.com/proto/aNv23zcU2d1qw518JxVEBc/Budgie?node-id=2191-1153&t=nR9ZVb5hyWPd6Oow-1",
+      "presentationUrl": "assets/budgiePresentation.pdf",
+      "appStoreUrl": "https://apps.apple.com/sa/app/budgie-money-tracking-app/id6773916915"
+    },
+    {
+      "id": "gareeb-delivery-app",
+      "type": {
+        "en": "Community Delivery App",
+        "ar": "تطبيق توصيل مجتمعي"
+      },
+      "title": {
+        "en": "Gareeb",
+        "ar": "قريب"
+      },
+      "cardText": {
+        "en": "A neighborhood-based delivery concept built around shared trips and community support.",
+        "ar": "فكرة توصيل مجتمعية تعتمد على الرحلات القريبة ومساعدة سكان الحي لبعضهم."
+      },
+      "detailDesc": {
+        "en": "A local delivery platform that connects people who need small items with nearby users already going to the same place.",
+        "ar": "منصة توصيل محلية تربط من يحتاج أغراضا بسيطة بأشخاص قريبين ذاهبين لنفس المكان."
+      },
+      "overview": {
+        "en": "Gareeb was created to solve a common daily problem: needing one or two small items without wanting to make a full trip or pay high delivery fees. The app turns everyday neighborhood movement into shared opportunities, allowing users to request quick pickups from nearby stores such as pharmacies, bakeries, groceries, and local shops.",
+        "ar": "صمم قريب لحل مشكلة يومية شائعة: الحاجة لغرض أو غرضين بسيطين بدون مشوار كامل أو رسوم توصيل عالية. يحول التطبيق حركة سكان الحي اليومية إلى فرص مشتركة، بحيث يمكن للمستخدم طلب أغراض بسيطة من أماكن قريبة مثل الصيدلية، المخبز، البقالة، أو المتاجر المحلية."
+      },
+      "role": {
+        "en": "UX/UI Design",
+        "ar": "تصميم تجربة وواجهات"
+      },
+      "tools": [
+        "Figma"
+      ],
+      "deliverables": {
+        "en": "User Flow, Service Concept, UI Screens, Prototype",
+        "ar": "مسار المستخدم، فكرة الخدمة، شاشات واجهة، نموذج تفاعلي"
+      },
+      "tags": [],
+      "cover": "assets/gareeb1.png",
+      "images": [
+        {
+          "src": "assets/gareeb1.png",
+          "alt": {
+            "en": "Gareeb delivery app screen",
+            "ar": "شاشة تطبيق قريب للتوصيل"
+          }
+        },
+        {
+          "src": "assets/gareeb2.png",
+          "alt": {
+            "en": "Second Gareeb delivery app screen",
+            "ar": "الشاشة الثانية لتطبيق قريب للتوصيل"
+          }
+        }
+      ],
+      "prototypeUrl": "https://www.figma.com/proto/SoI5tpjoBVz2KAD23yJZAq/Gareeb?node-id=79-23264&t=uojK6x9fyYY7As4N-1",
+      "presentationUrl": "assets/gareebPresentation.pdf"
+    },
+    {
+      "id": "qamareya-womens-health-app",
+      "type": {
+        "en": "Women’s Health App",
+        "ar": "تطبيق صحة نسائية"
+      },
+      "title": {
+        "en": "Qamareya",
+        "ar": "قمرية"
+      },
+      "cardText": {
+        "en": "A calm women’s health app that combines cycle, fertility, and pregnancy tracking in one place.",
+        "ar": "تطبيق صحة نسائية هادئ يجمع تتبع الدورة، الخصوبة، والحمل في مكان واحد."
+      },
+      "detailDesc": {
+        "en": "A smart women’s health app designed to support different health stages through tracking, education, and specialist consultations.",
+        "ar": "تطبيق صحة نسائية ذكي يدعم مراحل صحية مختلفة من خلال التتبع، التثقيف، والاستشارات المتخصصة."
+      },
+      "overview": {
+        "en": "Qamareya brings pregnancy tracking, fertility tracking, and menstrual cycle tracking into one unified platform. The name is inspired by the Arabic word Qamar, meaning moon, reflecting rhythm, phases, softness, and natural cycles. The app creates a calm and organized experience that helps women understand their bodies, follow health changes, access reliable content, and communicate with specialists when needed.",
+        "ar": "يجمع قمرية تتبع الحمل، الخصوبة، والدورة الشهرية داخل منصة واحدة متكاملة. الاسم مستوحى من كلمة قمر، بما تحمله من معنى الإيقاع، المراحل، النعومة، والدورات الطبيعية. يقدم التطبيق تجربة هادئة ومنظمة تساعد المرأة على فهم جسمها، متابعة التغيرات الصحية، الوصول إلى محتوى موثوق، والتواصل مع المختصين عند الحاجة."
+      },
+      "role": {
+        "en": "UX/UI Design",
+        "ar": "تصميم تجربة وواجهات"
+      },
+      "tools": [
+        "Figma"
+      ],
+      "deliverables": {
+        "en": "IA, User Flow, Design System, UI Screens",
+        "ar": "هيكلة معلومات، مسار مستخدم، نظام تصميم، شاشات واجهة"
+      },
+      "tags": [],
+      "cover": "assets/qamareya1.png",
+      "images": [
+        {
+          "src": "assets/qamareya1.png",
+          "alt": {
+            "en": "Qamareya women’s health app screen",
+            "ar": "شاشة تطبيق قمرية للصحة النسائية"
+          }
+        },
+        {
+          "src": "assets/qamareya2.png",
+          "alt": {
+            "en": "Second Qamareya women’s health app screen",
+            "ar": "الشاشة الثانية لتطبيق قمرية للصحة النسائية"
+          }
+        }
+      ],
+      "prototypeUrl": "https://www.figma.com/proto/NP6rBjgIC6Yl13LUZHLMnp/qamaryah?node-id=11-10590&t=DwEIy1Z7t2w6aRK1-1",
+      "presentationUrl": "assets/qamareyaPresentation.pdf"
+    },
+    {
+      "id": "day-diamond-app",
+      "type": {
+        "en": "Gamified Lifestyle App",
+        "ar": "تطبيق أسلوب حياة تفاعلي"
+      },
+      "title": {
+        "en": "Day Diamond",
+        "ar": "الماس اليوم"
+      },
+      "cardText": {
+        "en": "A playful app that helps users spend their free time more intentionally and reduce screen time through real-world challenges.",
+        "ar": "تطبيق تفاعلي يساعد المستخدمين على استثمار وقت فراغهم وتقليل وقت الشاشة من خلال تحديات واقعية ممتعة."
+      },
+      "detailDesc": {
+        "en": "A gamified lifestyle app designed to turn ordinary free moments into valuable experiences through challenges, points, and leaderboard motivation.",
+        "ar": "تطبيق أسلوب حياة قائم على التلعيب يحوّل لحظات الفراغ اليومية إلى تجارب قيّمة من خلال التحديات، النقاط، ولوحة الصدارة."
+      },
+      "overview": {
+        "en": "Day Diamond is a concept born from a simple observation: free time often disappears without us noticing. Many people do not intentionally choose to spend hours on their phones; it slowly happens because scrolling is the easiest option available. The app approaches this problem with a lighter mindset by making better use of time feel playful, approachable, and rewarding. Through short real-world challenges, points, and leaderboard motivation, Day Diamond encourages users to see small free moments as something valuable. The name reflects this idea: a day diamond is a valuable moment hidden inside an ordinary day.",
+        "ar": "بدأت فكرة الماس اليوم من ملاحظة بسيطة: وقت الفراغ غالبًا يختفي بدون ما ننتبه. كثير من الناس ما يختارون قضاء ساعات طويلة على الجوال عمدًا، لكنه يحدث تدريجيًا لأن التمرير هو الخيار الأسهل. يتعامل التطبيق مع هذه المشكلة بطريقة أخف وأقرب للمستخدم، حيث يجعل استثمار الوقت ممتعًا، بسيطًا، ومحفزًا. من خلال تحديات واقعية قصيرة، نقاط، ولوحة صدارة، يشجع الماس اليوم المستخدمين على رؤية اللحظات الصغيرة في يومهم كشيء قيّم. ويرتبط الاسم بهذه الفكرة: ألماسة اليوم هي لحظة ثمينة مخفية داخل يوم عادي."
+      },
+      "role": {
+        "en": "UX/UI Design",
+        "ar": "تصميم تجربة وواجهات"
+      },
+      "tools": [
+        "Figma"
+      ],
+      "deliverables": {
+        "en": "Research, User Flow, Design System, UI Screens, Prototype",
+        "ar": "بحث، مسار مستخدم، نظام تصميم، شاشات واجهة، نموذج تفاعلي"
+      },
+      "tags": [],
+      "cover": "assets/DayDiamond.png",
+      "images": [
+        {
+          "src": "assets/DayDiamond.png",
+          "alt": {
+            "en": "Day Diamond app screen",
+            "ar": "شاشة تطبيق الماس اليوم"
+          }
+        },
+        {
+          "src": "assets/DayDiamond2.png",
+          "alt": {
+            "en": "Second Day Diamond app screen",
+            "ar": "الشاشة الثانية لتطبيق الماس اليوم"
+          }
+        }
+      ],
+      "prototypeUrl": "https://www.figma.com/proto/xZRsHOdtHK8E8LQqRAsPj5/DayDiamond?node-id=82-1100&viewport=39%2C758%2C0.18&t=KjpZbkZ2kS2Lxmf8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=82%3A1085&page-id=0%3A1",
+      "presentationUrl": "assets/DayDiamondPresentation.pdf"
+    }
+  ]
+}
