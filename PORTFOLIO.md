@@ -14,9 +14,9 @@ For a project with documented content, add sections containing `heading`, `body`
 
 ## Replace ALT slots
 
-Edit `data/assets.mjs`. Every slot currently has `src: null`. Change only `src` to an approved local path and update `alt` with a meaningful description of the supplied image. `references` contains original image URLs for later use, but is never displayed, requested or downloaded. Slots support `ratio`, optional `width`/`height`, background variants, and radius variants. Dimensions are emitted as an external stylesheet to honor the existing content security policy. Mobile prototype and contact dimensions remain responsive.
+Edit `data/assets.mjs`. The supplied hands, laptop, and five matching project icons are linked. Unfilled slots retain `src: null`. Orbit is not assigned to Dailys because the project identity does not match. Change only `src` to an approved local path and update `alt` with a meaningful description of the supplied image. `references` contains original image URLs for later use, but is never displayed, requested or downloaded. Slots support `ratio`, optional `width`/`height`, background variants, and radius variants. Dimensions are emitted as an external stylesheet to honor the existing content security policy. Mobile prototype and contact dimensions remain responsive.
 
-All unfilled visual slots show exactly `ALT`. A supplied image that fails to load also returns to an accessible `ALT` slot. Interface headings and buttons remain ordinary HTML outside image slots. No original portfolio images, Figma exports or stock images are displayed by this redesign.
+All unfilled visual slots show exactly `ALT`. A supplied image that fails to load also returns to an accessible `ALT` slot. Interface headings and buttons remain ordinary HTML outside image slots. Only the explicitly supplied artwork is displayed; prototype slots remain empty.
 
 ## Source coverage
 
