@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {existsSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import projects from '../data/projects.mjs';
 import {assets} from '../data/assets.mjs';
@@ -11,5 +12,7 @@ test('verified live projects retain source data and use the same detail template
  }
 });
 test('unlisted projects do not acquire invented roles or case-study claims',()=>{for(const p of projects.filter(p=>p.sourceStatus==='not-listed')){assert.equal(p.role,null);assert.equal(p.outcomes,null);assert.equal(p.sections.length,0);assert.ok(projectPage(p).includes('Project details are being prepared.'));}});
-test('homepage links every data project to its detail URL and uses ALT for all visuals',()=>{const html=homepage();for(const p of projects)assert.ok(html.includes(`/projects/${p.slug}/`));assert.equal((html.match(/class="atmo-alt"/g)||[]).length,9);assert.ok(!html.includes('<img'));assert.ok(!html.includes('<picture'));});
-test('image configuration selects supplied src only, never provenance references',()=>{assert.ok(Object.values(assets).every(a=>a.src===null));const a=assets['budgie-prototype-1'];a.src='/assets/images/supplied.png';try{const html=placeholder('budgie-prototype-1');assert.ok(html.includes('src="/assets/images/supplied.png"'));assert.ok(html.includes(`alt="${a.alt}"`));assert.ok(!html.includes('rubalghamdi.com/assets/'));}finally{a.src=null;}});
+test('homepage connects supplied artwork and retains unfilled ALT slots',()=>{const html=homepage();for(const p of projects)assert.ok(html.includes(`/projects/${p.slug}/`));assert.equal((html.match(/class="atmo-alt"/g)||[]).length,2);assert.equal((html.match(/<img /g)||[]).length,7);for(const id of ['hands','computer','budgie-logo','after-taste-logo','gareeb-logo','qamareya-logo','day-diamond-logo'])assert.ok(html.includes(`src="${assets[id].src}"`));assert.equal(assets['dailys-logo'].src,null);});
+test('image configuration selects supplied src only, never provenance references',()=>{assert.ok(projects.every(p=>assets[p.assets.hero].src===null&&[1,2,3].every(i=>assets[`${p.slug}-prototype-${i}`].src===null))); const a=assets['budgie-prototype-1'];a.src='/assets/images/supplied.png';try{const html=placeholder('budgie-prototype-1');assert.ok(html.includes('src="/assets/images/supplied.png"'));assert.ok(html.includes(`alt="${a.alt}"`));assert.ok(!html.includes('rubalghamdi.com/assets/'));}finally{a.src=null;}});
+
+test('every configured local image resolves to an uploaded asset',()=>{for(const asset of Object.values(assets).filter(a=>a.src)){assert.ok(existsSync(new URL('..'+decodeURIComponent(asset.src),import.meta.url)),asset.src);}});
