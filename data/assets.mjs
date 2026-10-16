@@ -16,6 +16,15 @@ for(const p of projects){
  for(let i=1;i<=3;i++)assets[`${p.slug}-prototype-${i}`]={src:null,alt:`${p.title.en} prototype illustrating ${p.sections[i-1]?.heading.en.replaceAll('\n',' ')||'project screens'}`,ratio:'640 / 520',background:i===2?'dark':'light',radius:'soft',references:refs};
 }
 
+// Uploaded Budgie artwork, shared by the header, narrative sections and closing.
+Object.assign(assets,{
+ 'budgie-hero':{...assets['budgie-hero'],src:'/assets/images/budgie/mockup1.png',loading:'eager',alt:'Angled iPhone displaying the Budgie launch screen',background:'clear',radius:'none'},
+ 'budgie-closing':{src:'/assets/images/budgie/mockup2.png',alt:'Angled iPhone displaying Budgie’s financial onboarding screen',ratio:'4 / 5',background:'clear',radius:'none'},
+ 'budgie-prototype-1':{...assets['budgie-prototype-1'],src:'/assets/images/budgie/featurepost1.png',alt:'Budgie spending categories with amounts and percentage breakdowns',background:'clear'},
+ 'budgie-prototype-2':{...assets['budgie-prototype-2'],src:'/assets/images/budgie/featurepost2.png',alt:'Budgie spending insights chart with daily, weekly and monthly views',background:'clear'},
+ 'budgie-prototype-3':{...assets['budgie-prototype-3'],src:'/assets/images/budgie/featurepost3.png',alt:'Budgie budget widgets displayed on iPhone lock screens',background:'clear'}
+});
+
 // Preserved utility-route visuals also use this central registry.
 Object.assign(assets,{
   "about-visual-1": {
