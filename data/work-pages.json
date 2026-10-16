@@ -1,0 +1,12 @@
+[
+  {
+    "id": "apps",
+    "title": {"en": "Apps", "ar": "تطبيقات"},
+    "emptyText": {"en": "App projects will appear here.", "ar": "ستظهر مشاريع التطبيقات هنا."}
+  },
+  {
+    "id": "websites",
+    "title": {"en": "Websites", "ar": "مواقع"},
+    "emptyText": {"en": "Website projects will appear here.", "ar": "ستظهر مشاريع المواقع هنا."}
+  }
+]
