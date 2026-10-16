@@ -16,7 +16,7 @@ For a project with documented content, add sections containing `heading`, `body`
 
 Edit `data/assets.mjs`. The supplied hands, laptop, five matching project icons, and both starfield transitions are linked. The rising hero shape uses `bottomimage.png`; the inverted contact shape uses `headimage.png`, matching the supplied screenshots despite the filenames. Unfilled slots retain `src: null`. Orbit is not assigned to Dailys because the project identity does not match. Change only `src` to an approved local path and update `alt` with a meaningful description of the supplied image. `references` contains original image URLs for later use, but is never displayed, requested or downloaded. Slots support `ratio`, optional `width`/`height`, background variants, and radius variants. Dimensions are emitted as an external stylesheet to honor the existing content security policy. Mobile prototype and contact dimensions remain responsive.
 
-All unfilled visual slots show exactly `ALT`. A supplied image that fails to load also returns to an accessible `ALT` slot. Interface headings and buttons remain ordinary HTML outside image slots. Only the explicitly supplied artwork is displayed; prototype slots remain empty.
+All unfilled visual slots show exactly `ALT`. A supplied image that fails to load also returns to an accessible `ALT` slot. Interface headings and buttons remain ordinary HTML outside image slots. Only explicitly supplied artwork is displayed. Budgie uses all five images in `assets/images/budgie/`: mockup1 in the header, featurepost1–3 beside the narrative sections, and mockup2 in the closing section. Its project accent is `#6FAFCD`; other project accents and unfilled prototype slots retain their existing settings.
 
 ## Source coverage
 
