@@ -2,13 +2,20 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import projects from '../data/projects.mjs';
+import {accentInk} from '../lib/site/project-data.mjs';
 import {assets} from '../data/assets.mjs';
 import {translations,navigation,placeholder} from '../lib/site/components.mjs';
 import {homepage,projectPage,projectIndex,documentPage} from '../lib/site/templates.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const write=async(file,text)=>{await fs.mkdir(path.dirname(path.join(root,file)),{recursive:true});await fs.writeFile(path.join(root,file),text);};
 await write('index.html',homepage());await write('projects/index.html',projectIndex());
+const manifestPath=path.join(root,'data/generated-project-routes.json');
+const previous=JSON.parse(await fs.readFile(manifestPath,'utf8').catch(()=>"[]"));
+for(const slug of previous.filter(slug=>!projects.some(p=>p.slug===slug))){
+ if(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))await fs.rm(path.join(root,'projects',slug,'index.html'),{force:true});
+}
 for(const project of projects)await write(`projects/${project.slug}/index.html`,projectPage(project));
+await write('data/generated-project-routes.json',JSON.stringify(projects.map(p=>p.slug),null,2)+'\n');
 const utilities=JSON.parse(await fs.readFile(path.join(root,'data/utility-pages.json'),'utf8'));
 for(const [route,page] of Object.entries(utilities)){
  let index=0;
@@ -20,5 +27,5 @@ for(const [route,page] of Object.entries(utilities)){
 }
 await write('locales/design.js',`window.PORTFOLIO_LOCALES=window.PORTFOLIO_LOCALES||{};window.PORTFOLIO_LOCALES.ar={...window.PORTFOLIO_LOCALES.ar,...${JSON.stringify(translations)}};\n`);
 // Ratios, colors and radii are generated as external CSS to preserve the existing CSP.
-await write('assets/css/asset-dimensions.css',Object.entries(assets).map(([id,a])=>`[data-asset="${id}"]{aspect-ratio:${a.ratio};${/^#[0-9a-f]{3,8}$/i.test(a.background)?`background:${a.background};`:''}${/^\d+(px|%)$/.test(a.radius)?`border-radius:${a.radius};`:''}${a.width?`width:${a.width};`:''}${a.height?`height:${a.height};`:''}}`).join('\n')+'\n'+projects.filter(p=>/^#[0-9a-f]{6}$/i.test(p.accent||'')).map(p=>`[data-project="${p.slug}"]{--project-accent:${p.accent};}`).join('\n')+'\n');
+await write('assets/css/asset-dimensions.css',Object.entries(assets).map(([id,a])=>`[data-asset="${id}"]{aspect-ratio:${a.ratio};${/^#[0-9a-f]{3,8}$/i.test(a.background)?`background:${a.background};`:''}${/^\d+(px|%)$/.test(a.radius)?`border-radius:${a.radius};`:''}${a.width?`width:${a.width};`:''}${a.height?`height:${a.height};`:''}}`).join('\n')+'\n'+projects.filter(p=>/^#[0-9a-f]{6}$/i.test(p.accent||'')).map(p=>`[data-project="${p.slug}"]{--project-accent:${p.accent};--project-ink:${accentInk(p.accent)};}`).join('\n')+'\n');
 console.log(`Built homepage, ${projects.length} shared-template project pages and ${Object.keys(utilities).length} preserved utility pages. ${Object.values(assets).filter(a=>a.src).length} linked images; ${Object.values(assets).filter(a=>!a.src).length} ALT slots.`);

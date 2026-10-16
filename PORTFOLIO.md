@@ -1,38 +1,76 @@
-# Portfolio editing and verification
+# Edit the portfolio
 
-This remains a static HTML/CSS/JavaScript site with the existing Netlify setup and note-wall function. `npm run build` renders the homepage and every project URL from one shared template. Generated HTML is committed so the site also works with ordinary static hosting and with JavaScript disabled. Netlify runs the same build before publishing; no deployment is performed by this change.
+The current static HTML/CSS/JavaScript and Netlify deployment setup is retained. One reusable template builds every project URL from `data/projects.json`. You never need to copy or edit a project's generated HTML.
 
-## Edit project content
+## Add a project
 
-- `data/projects.mjs`: ordered project list, bilingual content, narrative sections, roles, tools and external links.
-- `data/portfolio-source.json`: complete original Arabic/English project records retrieved from the live portfolio on 12 October 2026. Preserve this snapshot as provenance rather than editing it.
-- `lib/site/templates.mjs`: shared homepage and project layouts.
-- `lib/site/components.mjs`: navigation, reusable asset slots, tiles, process steps, contact and narrative sections.
-- `data/utility-pages.json`: preserved contact form, visitor wall, about and policy content, rendered with the new shared navigation/footer.
+1. Run `npm run project:add -- my-project apps` or `npm run project:add -- my-website websites`.
+2. Open the new record at the bottom of `data/projects.json`. It starts with `"draft": true`, so unfinished example content is not listed in the grids or generated as a detail page.
+3. Edit its English and Arabic fields, color, artwork and features. Set `draft` to `false` when ready.
+4. Run `npm run build` and `npm test`, then commit the data and generated changes. Netlify runs the same build using the existing publish directory and functions.
 
-For a project with documented content, add sections containing `heading`, `body`, and `asset`. The shared template alternates image/text on desktop, then places each section’s text before its own prototype on mobile. Empty sections do not render. Add English/Arabic values together; the build registers new translations with the existing language runtime. The language preference and RTL behavior are preserved.
+The route is generated from `slug`: `my-project` becomes `/projects/my-project/`. `collection` places its icon on the Apps or Websites page automatically. Array order controls icon order. Setting a project back to draft or removing its record removes its generated route on the next build. Slugs must be unique lowercase words separated by hyphens.
 
-## Replace ALT slots
+## Change a project's color
 
-Edit `data/assets.mjs`. The supplied hands, laptop, five matching project icons, and both starfield transitions are linked. The rising hero shape uses `bottomimage.png`; the inverted contact shape uses `headimage.png`, matching the supplied screenshots despite the filenames. Unfilled slots retain `src: null`. Orbit is not assigned to Dailys because the project identity does not match. Change only `src` to an approved local path and update `alt` with a meaningful description of the supplied image. `references` contains original image URLs for later use, but is never displayed, requested or downloaded. Slots support `ratio`, optional `width`/`height`, background variants, and radius variants. Dimensions are emitted as an external stylesheet to honor the existing content security policy. Mobile prototype and contact dimensions remain responsive.
+Every project has its own `accent`, for example `"accent": "#6FAFCD"` for Budgie. This colors only that project's introduction and closing sections. Other projects keep their own colors. Readable light or dark text is chosen automatically. The feature sections retain their light/dark backgrounds; an individual feature can optionally set `"theme": "light"` or `"theme": "dark"`.
 
-All unfilled visual slots show exactly `ALT`. A supplied image that fails to load also returns to an accessible `ALT` slot. Interface headings and buttons remain ordinary HTML outside image slots. Only explicitly supplied artwork is displayed. Budgie uses all five images in `assets/images/budgie/`: mockup1 in the header, featurepost1–3 beside the narrative sections, and mockup2 in the closing section. Its project accent is `#6FAFCD`; other project accents and unfilled prototype slots retain their existing settings.
+## Add, remove or reorder features
 
-## Source coverage
+Edit the project's `features` array. There is no fixed feature count: `[]`, one feature, or five features all work. Copy an existing feature, edit both translations and its image, or delete a feature object. Desktop image positions alternate automatically; mobile keeps each feature's text directly before its image.
 
-The live homepage’s `js/home.js` links to `project.html?id=…`; its `js/project.js` renders details from `js/data.js`. Both scripts and all four linked page shells were inspected. The following content was available:
+```json
+{
+  "heading": {"en": "A feature heading", "ar": "عنوان الميزة"},
+  "body": {"en": "Describe this feature.", "ar": "أضف وصف هذه الميزة."},
+  "image": {
+    "src": "/assets/images/my-project/feature.png",
+    "alt": {"en": "What the image shows", "ar": "وصف ما تعرضه الصورة"},
+    "ratio": "4 / 5"
+  }
+}
+```
 
-| Project | Live project ID | Preserved content |
-| --- | --- | --- |
-| Budgie | `budgie-budgeting-app` | Bilingual descriptions and overview; UX/UI role; Figma/SwiftUI; research, budget flow, screens and prototype deliverables; Figma prototype, presentation PDF and App Store links; original image references |
-| Gareeb | `gareeb-delivery-app` | Bilingual descriptions and overview; UX/UI role; Figma; flow, service concept, screens and prototype deliverables; Figma/PDF links; image references |
-| Qamareya | `qamareya-womens-health-app` | Bilingual descriptions and overview; UX/UI role; Figma; information architecture, flow, design system and screens; Figma/PDF links; image references |
-| Day Diamond | `day-diamond-app` | Bilingual descriptions and overview; UX/UI role; Figma; research, flow, design system, screens and prototype; Figma/PDF links; image references |
-| After Taste | Not listed | Name and category from the requested homepage specification only |
-| Dailys | Not listed | Name and category from the requested homepage specification only |
+## Edit English and Arabic together
 
-After Taste and Dailys have working project URLs and share the same template, but show a preparation notice instead of fabricated case studies. Their three narrative asset definitions are ready for later content. No quantitative outcomes or additional responsibilities were available in the live data. `process` and `outcomes` remain null. Budgie’s SMS/Shortcuts, categorization and six-to-three onboarding narrative comes from the user-supplied implementation specification, recorded explicitly as its section source.
+Each text field keeps its translations next to each other: `{ "en": "…", "ar": "…" }`. Edit either value directly in `data/projects.json`. This includes names, categories, headlines, descriptions, feature headings/body text, roles, deliverables, link labels and image alt text. Use `\n` inside a string for a deliberate line break.
 
-## Checks
+Translations are scoped to their field, so two features may use the same English heading and different Arabic text. Switching languages updates copy, image descriptions, project page titles and metadata while retaining the selected work page and RTL behavior. The build reports missing English/Arabic text rather than silently publishing incomplete translations. Shared Apps/Websites labels and their empty-state text live in `data/work-pages.json`.
 
-Run `npm run build` and `npm test`. Verify `/`, `/projects/`, all six project URLs, `/about/`, `/contact/` and `/wall/` on desktop, tablet and phone. Check English/Arabic, keyboard focus, native section links, email/prototype links, form feedback, reduced motion and exact ALT labels. The visitor-wall tests exercise shared persistence, validation and password-protected deletion.
+Optional content such as `overview`, `role`, `deliverables` or the closing mockup can be `null`; `tools` and `links` may be empty arrays. Keep supported claims and source links accurate. A link uses `{ "label": {"en":"View website ↗","ar":"عرض الموقع ↗"}, "url":"https://…" }`.
+
+## Add artwork
+
+All **project** artwork is edited in the same project record:
+
+- `images.logo`: icon shown in its Apps/Websites grid.
+- `images.hero`: main project mockup.
+- `images.closing`: optional bottom mockup; use `null` to omit it.
+- `features[i].image`: the image beside that feature.
+
+Use local `/assets/…` paths. Use `src: null` to keep a visible `ALT` placeholder. An image that fails to load also returns to ALT. Image settings support `ratio`, optional `width`/`height`, `background` (a named variant or hex), and `radius` (a named variant, px or %). Original image `references` are provenance only and never render or download. Images are contained to show the full artwork.
+
+Budgie's two mockups and three feature images remain linked. Homepage hands, starfield transitions, laptop, and preserved utility-page visuals are configured separately in `data/assets.mjs`. Their source artwork is unchanged.
+
+## Work-page controls
+
+The compact Apps/Websites labels above the grid are both titles and controls. Visitors can click, swipe or use arrow keys/Home/End. There is no autoplay. The active page stays selected when switching languages or resizing; offscreen links do not enter keyboard focus. Both the homepage and `/projects/` use the same component and project data.
+
+There are currently six app entries and no supplied website entries. The Websites page shows an honest empty state until a published project uses `"collection": "websites"`. No website case studies have been invented.
+
+## Source coverage and preserved functionality
+
+`data/portfolio-source.json` preserves the original Arabic/English records retrieved from rubalghamdi.com on 12 October 2026. Budgie, Gareeb, Qamareya and Day Diamond retain their descriptions, roles, tools, deliverables and prototype/PDF/App Store links where available. After Taste and Dailys were not listed; only the supplied names/categories and a preparation notice are used. No additional outcomes or responsibilities were invented. Budgie's SMS/Shortcuts and onboarding narrative was supplied in the implementation brief.
+
+The existing contact form, visitor note wall and password-protected deletion, about/policy routes, language preference, RTL and Netlify functions remain available. Their content is preserved in `data/utility-pages.json`; legacy utility translations remain in `locales/`.
+
+## Implementation and verification
+
+- `data/projects.json`: editable project records, translations and project artwork.
+- `data/projects.mjs` / `lib/site/project-data.mjs`: load, validate and normalize records.
+- `lib/site/templates.mjs`: the shared detail-page template.
+- `lib/site/components.mjs` / `lib/site/work-pages.mjs`: reusable layout components.
+- `assets/js/work-pages.js`: native scroll paging, keyboard controls and RTL alignment.
+- `scripts/build.mjs`: generate routes, accent CSS and legacy translations.
+
+Run `npm run build`, `npm test` and `git diff --check`. Check desktop, tablet and phone widths, English/Arabic, project links and both work pages. Tests cover variable feature counts, independent colors, drafts, bilingual validation, field-scoped translations, uploaded images, and visitor-note persistence/deletion.

@@ -22,7 +22,7 @@
       acceptNode(node) {
         if (!normalize(node.nodeValue)) return NodeFilter.FILTER_REJECT;
         const parent = node.parentElement;
-        if (parent?.closest('[data-note-board]')) return NodeFilter.FILTER_REJECT;
+        if (parent?.closest('[data-note-board],[data-copy-en]')) return NodeFilter.FILTER_REJECT;
         if (!parent || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
@@ -54,9 +54,23 @@
     });
     baseAttrs.forEach(({el, attr, value}) => el.setAttribute(attr, t(value, lang)));
     baseMeta.forEach(({el, value}) => { el.content = t(value, lang); });
+    // Explicit paired text is local to each field: repeated English wording can
+    // have different Arabic translations without global dictionary collisions.
+    document.querySelectorAll('[data-copy-en]').forEach(el => {
+      const value=el.getAttribute('data-copy-'+lang) || el.getAttribute('data-copy-en');
+      const nodes=value.split('\n').flatMap((line,i)=>i?[document.createElement('br'),document.createTextNode(line)]:[document.createTextNode(line)]);
+      el.replaceChildren(...nodes);
+    });
+    document.querySelectorAll('[data-alt-en]').forEach(el=>{
+      el.setAttribute(el.tagName==='IMG'?'alt':'aria-label',el.getAttribute('data-alt-'+lang));
+    });
     const baseTitle = document.documentElement.dataset.baseTitle || normalize(document.title);
     document.documentElement.dataset.baseTitle = baseTitle;
     document.title = t(baseTitle, lang);
+    const pageTitle=document.documentElement.getAttribute('data-title-'+lang);
+    const pageDescription=document.documentElement.getAttribute('data-description-'+lang);
+    if(pageTitle){document.title=pageTitle;document.querySelectorAll('meta[property="og:title"],meta[name="twitter:title"]').forEach(el=>el.content=pageTitle);}
+    if(pageDescription)document.querySelectorAll('meta[name="description"],meta[property="og:description"],meta[name="twitter:description"]').forEach(el=>el.content=pageDescription);
 
     document.querySelectorAll('[data-lang]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.lang === lang));

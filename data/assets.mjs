@@ -8,22 +8,17 @@ export const assets={
  mist:{src:'/assets/images/headimage.png',alt:'Inverted star-filled mist flowing from lavender into the contact section',ratio:'3470 / 1780',background:'clear',radius:'none'},
  computer:{src:'/assets/images/image%206.png',alt:'Blue laptop with a pastel lavender screen',ratio:'1120 / 800',background:'computer',radius:'soft'}
 };
-const projectIcons={budgie:'/assets/images/Budgie.png','after-taste':'/assets/images/Aftertaste.png',gareeb:'/assets/images/Gareeb.png',qamareya:'/assets/images/Qamareya.png','day-diamond':'/assets/images/Day%20Diamond.png'};
-for(const p of projects){
- const refs=(p.images||[]).map(i=>({url:new URL(i.src,'https://rubalghamdi.com/').href,alt:i.alt}));
- assets[p.assets.logo]={src:projectIcons[p.slug]||null,alt:`${p.title.en} app logo`,ratio:'1 / 1',background:'logo',radius:'logo',references:[]};
- assets[p.assets.hero]={src:null,alt:`${p.title.en} portrait product prototype`,ratio:'4 / 5',background:'green',radius:'soft',references:refs};
- for(let i=1;i<=3;i++)assets[`${p.slug}-prototype-${i}`]={src:null,alt:`${p.title.en} prototype illustrating ${p.sections[i-1]?.heading.en.replaceAll('\n',' ')||'project screens'}`,ratio:'640 / 520',background:i===2?'dark':'light',radius:'soft',references:refs};
+// Project artwork is edited alongside its bilingual content in projects.json.
+export function registerProjectAssets(records){
+for(const p of records){
+ assets[p.assets.logo]=p.images.logo;
+ assets[p.assets.hero]=p.images.hero;
+ if(p.assets.closing)assets[p.assets.closing]=p.images.closing;
+ for(const section of p.sections)assets[section.asset]=section.image;
 }
 
-// Uploaded Budgie artwork, shared by the header, narrative sections and closing.
-Object.assign(assets,{
- 'budgie-hero':{...assets['budgie-hero'],src:'/assets/images/budgie/mockup1.png',loading:'eager',alt:'Angled iPhone displaying the Budgie launch screen',background:'clear',radius:'none'},
- 'budgie-closing':{src:'/assets/images/budgie/mockup2.png',alt:'Angled iPhone displaying Budgie’s financial onboarding screen',ratio:'4 / 5',background:'clear',radius:'none'},
- 'budgie-prototype-1':{...assets['budgie-prototype-1'],src:'/assets/images/budgie/featurepost1.png',alt:'Budgie spending categories with amounts and percentage breakdowns',background:'clear'},
- 'budgie-prototype-2':{...assets['budgie-prototype-2'],src:'/assets/images/budgie/featurepost2.png',alt:'Budgie spending insights chart with daily, weekly and monthly views',background:'clear'},
- 'budgie-prototype-3':{...assets['budgie-prototype-3'],src:'/assets/images/budgie/featurepost3.png',alt:'Budgie budget widgets displayed on iPhone lock screens',background:'clear'}
-});
+}
+registerProjectAssets(projects);
 
 // Preserved utility-route visuals also use this central registry.
 Object.assign(assets,{
