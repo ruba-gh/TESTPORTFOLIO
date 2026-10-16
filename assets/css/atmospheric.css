@@ -37,3 +37,33 @@ html[dir=rtl] .atmo-brand{direction:ltr}html[dir=rtl] .atmo-site h1,html[dir=rtl
  .atmo-computer:has(.has-image) .atmo-button{background:var(--atmo-white);color:var(--atmo-dark)!important}
  .atmo-computer:has(.has-image) .atmo-button:hover{background:#fff}
 }
+
+/* Full-width starfield transitions follow the supplied composition. Keep the
+   decorative layers behind real text, links and the foreground laptop. */
+.atmo-hero{isolation:isolate;overflow:hidden}
+.atmo-hero-mist{position:absolute;inset:0;height:100%;aspect-ratio:auto;z-index:0;pointer-events:none;background:transparent}
+.atmo-hero-mist img{object-fit:fill}
+.atmo-hero .atmo-hands{z-index:1}
+.atmo-hero .atmo-nav{z-index:3}
+.atmo-hero-copy{z-index:2;text-shadow:0 2px 14px #111}
+.atmo-hero-copy .atmo-button{text-shadow:none}
+.atmo-contact{position:relative;isolation:isolate;overflow:hidden;padding-block-start:clamp(160px,19.5vw,280px)}
+.atmo-contact>.atmo-transition{position:absolute;inset:0 0 auto;height:auto;aspect-ratio:3470 / 1780;background:transparent;z-index:0;pointer-events:none}
+.atmo-contact>.atmo-transition img{object-fit:contain;object-position:center top}
+.atmo-contact>.container{position:relative;z-index:1}
+.atmo-contact>.container>h2{text-shadow:0 2px 14px #111}
+@media(max-width:680px){
+ .atmo-hero-mist{inset:auto 0 0;height:460px}
+ .atmo-hero-mist img{object-fit:cover;object-position:center bottom}
+ .atmo-contact{padding-block-start:100px}
+ .atmo-contact>.atmo-transition{height:440px;aspect-ratio:auto}
+ .atmo-contact>.atmo-transition img{object-fit:cover;object-position:center top}
+}
+@media(min-width:1051px){
+ .atmo-hero{height:max(760px,57vw)}
+ .atmo-hero-copy{padding-block-start:110px}
+}
+@media(min-width:681px) and (max-width:1050px){
+ .atmo-hero{height:820px}
+ .atmo-hero-mist img{object-fit:cover;object-position:center bottom}
+}

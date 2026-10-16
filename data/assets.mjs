@@ -3,7 +3,9 @@ import projects from './projects.mjs';
 // provenance only: they never render, load or download. Alt remains meaningful.
 export const assets={
  hands:{src:'/assets/images/Hands.png',loading:'eager',alt:'Two open hands in pastel lavender sleeves',ratio:'1440 / 1000',background:'hero',radius:'none'},
- mist:{src:null,alt:'Lavender mist fading into charcoal between the process and contact sections',ratio:'1440 / 350',background:'mist',radius:'none'},
+ // The uploaded filenames are reversed relative to the silhouettes in the reference.
+ head:{src:'/assets/images/bottomimage.png',loading:'eager',alt:'Star-filled organic mist rising from a lavender base between the hands',ratio:'3470 / 1975',background:'clear',radius:'none'},
+ mist:{src:'/assets/images/headimage.png',alt:'Inverted star-filled mist flowing from lavender into the contact section',ratio:'3470 / 1780',background:'clear',radius:'none'},
  computer:{src:'/assets/images/image%206.png',alt:'Blue laptop with a pastel lavender screen',ratio:'1120 / 800',background:'computer',radius:'soft'}
 };
 const projectIcons={budgie:'/assets/images/Budgie.png','after-taste':'/assets/images/Aftertaste.png',gareeb:'/assets/images/Gareeb.png',qamareya:'/assets/images/Qamareya.png','day-diamond':'/assets/images/Day%20Diamond.png'};
