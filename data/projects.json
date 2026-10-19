@@ -515,7 +515,7 @@
     "slug": "qamareya",
     "collection": "apps",
     "draft": false,
-    "accent": "#BCE0C8",
+    "accent": "#FBCFDB",
     "title": {
       "en": "Qamareya",
       "ar": "قمرية"
@@ -583,14 +583,14 @@
         "references": []
       },
       "hero": {
-        "src": null,
+        "src": "/assets/images/qamareya/mockup1.png",
         "alt": {
-          "en": "Qamareya portrait product prototype",
-          "ar": "نموذج تطبيق قمرية"
+          "en": "Angled iPhone showing Qamareya’s welcome screen",
+          "ar": "هاتف آيفون بزاوية يعرض شاشة الترحيب في قمرية"
         },
         "ratio": "4 / 5",
-        "background": "green",
-        "radius": "soft",
+        "background": "clear",
+        "radius": "none",
         "references": [
           {
             "url": "https://rubalghamdi.com/assets/qamareya1.png",
@@ -606,9 +606,19 @@
               "ar": "الشاشة الثانية لتطبيق قمرية للصحة النسائية"
             }
           }
-        ]
+        ],
+        "loading": "eager"
       },
-      "closing": null
+      "closing": {
+        "src": "/assets/images/qamareya/mockup2.png",
+        "alt": {
+          "en": "Qamareya launch screen on an iPhone",
+          "ar": "شاشة بدء قمرية على هاتف آيفون"
+        },
+        "ratio": "4 / 5",
+        "background": "clear",
+        "radius": "none"
+      }
     },
     "features": [
       {
@@ -621,13 +631,13 @@
           "ar": "يجمع قمرية تتبع الحمل، الخصوبة، والدورة الشهرية داخل منصة واحدة متكاملة."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/qamareya/feature1.png",
           "alt": {
-            "en": "Qamareya prototype illustrating Different stages. One experience.",
-            "ar": "واجهات قمرية المرتبطة بهذه الميزة"
+            "en": "Qamareya cycle and fertility date cards",
+            "ar": "بطاقات قمرية لمواعيد الدورة وفترات الخصوبة"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -658,13 +668,13 @@
           "ar": "الاسم مستوحى من كلمة قمر، بما تحمله من معنى الإيقاع، المراحل، النعومة، والدورات الطبيعية."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/qamareya/feature2.png",
           "alt": {
-            "en": "Qamareya prototype illustrating Inspired by natural rhythms.",
-            "ar": "واجهات قمرية المرتبطة بهذه الميزة"
+            "en": "Illustration of a woman reaching toward a teardrop-shaped moon",
+            "ar": "رسم لامرأة تمد يدها نحو قمر على شكل قطرة"
           },
           "ratio": "640 / 520",
-          "background": "dark",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -695,13 +705,13 @@
           "ar": "يقدم التطبيق تجربة هادئة ومنظمة تساعد المرأة على فهم جسمها، متابعة التغيرات الصحية، الوصول إلى محتوى موثوق، والتواصل مع المختصين عند الحاجة."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/qamareya/feature3.png",
           "alt": {
-            "en": "Qamareya prototype illustrating Understanding, with support nearby.",
-            "ar": "واجهات قمرية المرتبطة بهذه الميزة"
+            "en": "Qamareya consultation and health-content screens",
+            "ar": "شاشات الاستشارات والمحتوى الصحي في قمرية"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
