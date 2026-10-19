@@ -360,14 +360,15 @@
         "references": []
       },
       "hero": {
-        "src": null,
+        "src": "/assets/images/gareeb/mockup1.png",
         "alt": {
           "en": "Gareeb portrait product prototype",
           "ar": "نموذج تطبيق قريب"
         },
+        "loading": "eager",
         "ratio": "4 / 5",
-        "background": "green",
-        "radius": "soft",
+        "background": "clear",
+        "radius": "none",
         "references": [
           {
             "url": "https://rubalghamdi.com/assets/gareeb1.png",
@@ -385,7 +386,16 @@
           }
         ]
       },
-      "closing": null
+      "closing": {
+        "src": "/assets/images/gareeb/mockup2.png",
+        "alt": {
+          "en": "Gareeb app closing mockup",
+          "ar": "نموذج تطبيق قريب في ختام المشروع"
+        },
+        "ratio": "4 / 5",
+        "background": "clear",
+        "radius": "none"
+      }
     },
     "features": [
       {
@@ -398,13 +408,13 @@
           "ar": "صمم قريب لحل مشكلة يومية شائعة: الحاجة لغرض أو غرضين بسيطين بدون مشوار كامل أو رسوم توصيل عالية."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/gareeb/feature1.png",
           "alt": {
             "en": "Gareeb prototype illustrating A small errand. A shared opportunity.",
             "ar": "واجهات قريب المرتبطة بهذه الميزة"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -435,13 +445,13 @@
           "ar": "يحول التطبيق حركة سكان الحي اليومية إلى فرص مشتركة، بحيث يمكن للمستخدم طلب أغراض بسيطة من أماكن قريبة مثل الصيدلية، المخبز، البقالة، أو المتاجر المحلية."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/gareeb/feature2.png",
           "alt": {
             "en": "Gareeb prototype illustrating Everyday movement, put to good use.",
             "ar": "واجهات قريب المرتبطة بهذه الميزة"
           },
           "ratio": "640 / 520",
-          "background": "dark",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -472,13 +482,13 @@
           "ar": "مخرجات المشروع: مسار المستخدم، فكرة الخدمة، شاشات واجهة، نموذج تفاعلي."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/gareeb/feature3.png",
           "alt": {
             "en": "Gareeb prototype illustrating From service concept to prototype.",
             "ar": "واجهات قريب المرتبطة بهذه الميزة"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
