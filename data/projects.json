@@ -32,10 +32,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma",
-      "SwiftUI"
-    ],
+    "tools": ["Figma", "SwiftUI"],
     "deliverables": {
       "en": "Research, Budget Flow, UI Screens, Prototype",
       "ar": "بحث، مسار الميزانية، شاشات واجهة، نموذج تفاعلي"
@@ -324,9 +321,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "User Flow, Service Concept, UI Screens, Prototype",
       "ar": "مسار المستخدم، فكرة الخدمة، شاشات واجهة، نموذج تفاعلي"
@@ -450,7 +445,7 @@
           "radius": "soft",
           "references": [
             {
-              "url": "https://rubalghamdi.com/assets/gareeb1.png",
+              "url": "https://rubalghamdi.com/assets/gareeb/mockup1.png",
               "alt": {
                 "en": "Gareeb delivery app screen",
                 "ar": "شاشة تطبيق قريب للتوصيل"
@@ -494,7 +489,7 @@
               }
             },
             {
-              "url": "https://rubalghamdi.com/assets/gareeb2.png",
+              "url": "https://rubalghamdi.com/assets/gareeb/mockup2.png",
               "alt": {
                 "en": "Second Gareeb delivery app screen",
                 "ar": "الشاشة الثانية لتطبيق قريب للتوصيل"
@@ -539,9 +534,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "IA, User Flow, Design System, UI Screens",
       "ar": "هيكلة معلومات، مسار مستخدم، نظام تصميم، شاشات واجهة"
@@ -754,9 +747,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "Research, User Flow, Design System, UI Screens, Prototype",
       "ar": "بحث، مسار مستخدم، نظام تصميم، شاشات واجهة، نموذج تفاعلي"
