@@ -738,7 +738,7 @@
     "slug": "day-diamond",
     "collection": "apps",
     "draft": false,
-    "accent": "#BCE0C8",
+    "accent": "#B2F0EA",
     "title": {
       "en": "Day Diamond",
       "ar": "الماس اليوم"
@@ -806,14 +806,14 @@
         "references": []
       },
       "hero": {
-        "src": null,
+        "src": "/assets/images/daydiamond/mockup1.png",
         "alt": {
-          "en": "Day Diamond portrait product prototype",
-          "ar": "نموذج تطبيق الماس اليوم"
+          "en": "Angled iPhone showing the Day Diamond welcome screen",
+          "ar": "هاتف آيفون بزاوية يعرض شاشة الترحيب في الماس اليوم"
         },
         "ratio": "4 / 5",
-        "background": "green",
-        "radius": "soft",
+        "background": "clear",
+        "radius": "none",
         "references": [
           {
             "url": "https://rubalghamdi.com/assets/DayDiamond.png",
@@ -829,9 +829,19 @@
               "ar": "الشاشة الثانية لتطبيق الماس اليوم"
             }
           }
-        ]
+        ],
+        "loading": "eager"
       },
-      "closing": null
+      "closing": {
+        "src": "/assets/images/daydiamond/mockup2.png",
+        "alt": {
+          "en": "Day Diamond gemstone launch screen on an angled iPhone",
+          "ar": "شاشة بدء الماس اليوم بأيقونة الجوهرة على هاتف آيفون مائل"
+        },
+        "ratio": "4 / 5",
+        "background": "clear",
+        "radius": "none"
+      }
     },
     "features": [
       {
@@ -844,13 +854,13 @@
           "ar": "بدأت فكرة الماس اليوم من ملاحظة بسيطة: وقت الفراغ غالبًا يختفي بدون ما ننتبه. كثير من الناس ما يختارون قضاء ساعات طويلة على الجوال عمدًا، لكنه يحدث تدريجيًا لأن التمرير هو الخيار الأسهل."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/daydiamond/feature1.png",
           "alt": {
-            "en": "Day Diamond prototype illustrating Find value in free moments.",
-            "ar": "واجهات الماس اليوم المرتبطة بهذه الميزة"
+            "en": "Day Diamond daily challenge controls and activity categories",
+            "ar": "عناصر التحكم بالتحديات اليومية وتصنيفات الأنشطة في الماس اليوم"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -881,13 +891,13 @@
           "ar": "يتعامل التطبيق مع هذه المشكلة بطريقة أخف وأقرب للمستخدم، حيث يجعل استثمار الوقت ممتعًا، بسيطًا، ومحفزًا. من خلال تحديات واقعية قصيرة، نقاط، ولوحة صدارة، يشجع الماس اليوم المستخدمين على رؤية اللحظات الصغيرة في يومهم كشيء قيّم."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/daydiamond/feature2.png",
           "alt": {
-            "en": "Day Diamond prototype illustrating Make time feel rewarding.",
-            "ar": "واجهات الماس اليوم المرتبطة بهذه الميزة"
+            "en": "A Day Diamond real-world challenge illustrated by photographing a red car",
+            "ar": "تحد واقعي في الماس اليوم موضح بتصوير سيارة حمراء"
           },
           "ratio": "640 / 520",
-          "background": "dark",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
@@ -918,13 +928,13 @@
           "ar": "ويرتبط الاسم بهذه الفكرة: ألماسة اليوم هي لحظة ثمينة مخفية داخل يوم عادي."
         },
         "image": {
-          "src": null,
+          "src": "/assets/images/daydiamond/feature3.png",
           "alt": {
-            "en": "Day Diamond prototype illustrating A diamond in an ordinary day.",
-            "ar": "واجهات الماس اليوم المرتبطة بهذه الميزة"
+            "en": "Glowing gemstones illustrating valuable moments in Day Diamond",
+            "ar": "جواهر مضيئة ترمز إلى اللحظات القيّمة في الماس اليوم"
           },
           "ratio": "640 / 520",
-          "background": "light",
+          "background": "clear",
           "radius": "soft",
           "references": [
             {
