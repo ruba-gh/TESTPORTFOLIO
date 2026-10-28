@@ -32,7 +32,10 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": ["Figma", "SwiftUI"],
+    "tools": [
+      "Figma",
+      "SwiftUI"
+    ],
     "deliverables": {
       "en": "Research, Budget Flow, UI Screens, Prototype",
       "ar": "بحث، مسار الميزانية، شاشات واجهة، نموذج تفاعلي"
@@ -321,7 +324,9 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": ["Figma"],
+    "tools": [
+      "Figma"
+    ],
     "deliverables": {
       "en": "User Flow, Service Concept, UI Screens, Prototype",
       "ar": "مسار المستخدم، فكرة الخدمة، شاشات واجهة، نموذج تفاعلي"
@@ -544,7 +549,9 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": ["Figma"],
+    "tools": [
+      "Figma"
+    ],
     "deliverables": {
       "en": "IA, User Flow, Design System, UI Screens",
       "ar": "هيكلة معلومات، مسار مستخدم، نظام تصميم، شاشات واجهة"
@@ -767,7 +774,9 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": ["Figma"],
+    "tools": [
+      "Figma"
+    ],
     "deliverables": {
       "en": "Research, User Flow, Design System, UI Screens, Prototype",
       "ar": "بحث، مسار مستخدم، نظام تصميم، شاشات واجهة، نموذج تفاعلي"
@@ -958,21 +967,21 @@
     ]
   },
   {
-    "slug": "dailys",
+    "slug": "orbit",
     "collection": "apps",
     "draft": false,
     "accent": "#BCE0C8",
     "title": {
-      "en": "Dailys",
-      "ar": "ديليز"
+      "en": "Orbit",
+      "ar": "أوربت"
     },
     "category": {
-      "en": "Social · Product concept",
-      "ar": "تواصل اجتماعي · فكرة منتج"
+      "en": "App project",
+      "ar": "مشروع تطبيق"
     },
     "headline": {
-      "en": "Dailys",
-      "ar": "ديليز"
+      "en": "Orbit",
+      "ar": "أوربت"
     },
     "description": null,
     "detailDesc": null,
@@ -991,10 +1000,10 @@
     },
     "images": {
       "logo": {
-        "src": null,
+        "src": "/assets/images/Orbit.png",
         "alt": {
-          "en": "Dailys app logo",
-          "ar": "شعار ديليز"
+          "en": "Orbit app logo",
+          "ar": "شعار أوربت"
         },
         "ratio": "1 / 1",
         "background": "logo",
@@ -1004,8 +1013,8 @@
       "hero": {
         "src": null,
         "alt": {
-          "en": "Dailys portrait product prototype",
-          "ar": "نموذج تطبيق ديليز"
+          "en": "Orbit product prototype",
+          "ar": "نموذج تطبيق أوربت"
         },
         "ratio": "4 / 5",
         "background": "green",

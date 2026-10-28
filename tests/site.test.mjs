@@ -33,7 +33,7 @@ test('paired translations stay scoped even when English text repeats',()=>{
 test('homepage contains exactly two work pages and routes every published project',()=>{
  const html=homepage();for(const p of projects)assert.ok(html.includes(`/projects/${p.slug}/`));
  assert.equal((html.match(/role="tabpanel"/g)||[]).length,2);assert.ok(html.includes('work-panel-apps'));assert.ok(html.includes('work-panel-websites'));
- const ids=['head','mist','hands','computer',...projects.map(p=>p.assets.logo)];assert.equal((html.match(/<img /g)||[]).length,ids.filter(id=>assets[id].src).length);assert.equal((html.match(/class="atmo-alt"/g)||[]).length,ids.filter(id=>!assets[id].src).length);
+ const ids=['head','mist','hands','computer',...projects.map(p=>p.assets.logo)];assert.equal((html.match(/<img (?!class="atmo-step-icon")/g)||[]).length,ids.filter(id=>assets[id].src).length);assert.equal((html.match(/class="atmo-alt"/g)||[]).length,ids.filter(id=>!assets[id].src).length);
 });
 test('image rendering selects supplied src and paired alt, never provenance references',()=>{
  const a=assets['budgie-prototype-1'],original=a.src;a.src='/assets/images/supplied.png';try{const html=placeholder('budgie-prototype-1');assert.ok(html.includes('src="/assets/images/supplied.png"'));assert.ok(html.includes(`alt="${a.alt.en}"`));assert.ok(html.includes(`data-alt-ar="${a.alt.ar}"`));assert.ok(!html.includes('rubalghamdi.com/assets/'));}finally{a.src=original;}

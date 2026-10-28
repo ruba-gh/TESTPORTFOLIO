@@ -19,6 +19,6 @@ The contact form remains configured for Netlify Forms. Form delivery, domain/TLS
 
 ## Content and images
 
-English and Arabic strings are under `locales/`. Rubik is used for body text; the supplied Zain Rounded font is used for headings. See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) for classifying projects, adding carousel images, replacing placeholders and operating the wall.
+English and Arabic strings are under `locales/`. Rubik is used for body text; Zain Rounded is used for Arabic headings and Caprasimo for English headings. See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) for classifying projects, adding carousel images, replacing placeholders and operating the wall.
 
 No analytics, advertising, tracking pixels, fabricated testimonials, or fabricated product screenshots are included.
