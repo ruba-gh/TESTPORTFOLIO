@@ -3,10 +3,10 @@ import projects from './projects.mjs';
 // provenance only: they never render, load or download. Alt remains meaningful.
 export const assets={
  hands:{src:'/assets/images/Hands.png',loading:'eager',alt:'Two open hands in pastel lavender sleeves',ratio:'1440 / 1000',background:'hero',radius:'none'},
- // The uploaded filenames are reversed relative to the silhouettes in the reference.
- head:{src:'/assets/images/bottomimage.png',loading:'eager',alt:'Star-filled organic mist rising from a lavender base between the hands',ratio:'3470 / 1975',background:'clear',radius:'none'},
- mist:{src:'/assets/images/headimage.png',alt:'Inverted star-filled mist flowing from lavender into the contact section',ratio:'3470 / 1780',background:'clear',radius:'none'},
- computer:{src:'/assets/images/image%206.png',alt:'Blue laptop with a pastel lavender screen',ratio:'1120 / 800',background:'computer',radius:'soft'}
+ // The hero rises into lavender; the closing mist flows down behind the laptop.
+ head:{src:'/assets/images/head%20image.png',loading:'eager',alt:'Star-filled organic mist rising from a lavender base between the hands',ratio:'3470 / 1975',background:'clear',radius:'none'},
+ mist:{src:'/assets/images/bottom%20image.png',alt:'Inverted star-filled mist flowing from lavender into the contact section',ratio:'3470 / 2129',background:'clear',radius:'none'},
+ computer:{src:'/assets/images/image%206.png',alt:'Blue laptop with a pastel lavender screen',ratio:'2880 / 2048',background:'computer',radius:'soft'}
 };
 // Project artwork is edited alongside its bilingual content in projects.json.
 export function registerProjectAssets(records){

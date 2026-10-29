@@ -14,8 +14,7 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
 .page-about-intro>div{min-width:0}
 .page-about-intro .atmo-button{margin-block-start:30px;background:var(--atmo-dark);color:var(--atmo-white)!important}
 .page-orbit-art{min-height:390px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px;isolation:isolate;overflow:hidden;border-radius:48% 48% 44% 44%;background:#22202a;color:var(--atmo-white);transform:rotate(4deg)}
-.page-orbit-art:before{content:"";position:absolute;inset:0;z-index:-1;background:url('/assets/images/headimage.png') center / cover no-repeat;opacity:.65}
-.page-art-star{font-size:112px;line-height:1;color:#e6d6ff}
+.page-orbit-art:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--atmo-stars) center / cover no-repeat;opacity:.8}
 .page-art-type{font-family:var(--atmo-heading);font-size:56px;line-height:1}
 .page-art-location{font-size:12px;letter-spacing:.05em}
 .page-background{padding-block:80px 100px;background:var(--atmo-light)}
@@ -34,7 +33,7 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
 .page-services h2{margin-block:20px 48px}
 .page-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
 .page-service{border-top:1px solid #51495e;padding-block-start:26px;min-width:0}
-.page-service-icon{display:grid;place-items:center;width:64px;height:64px;background:var(--atmo-lavender);border-radius:20px;margin-block-end:32px}
+.page-service-icon{display:grid;place-items:center;width:80px;height:80px;margin-block-end:28px}.page-service-icon img{display:block;width:64px;height:64px;object-fit:contain}
 .page-service h3{margin-block-end:18px}
 .page-service p{color:#c6becf;font-size:16px;line-height:1.85;max-width:340px}
 .page-cta{background:var(--atmo-lavender);color:var(--atmo-dark);padding-block:64px}
@@ -53,7 +52,7 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
 .page-email>span:last-child{font-size:clamp(13px,1.4vw,18px)}
 .page-socials{display:flex;flex-wrap:wrap;gap:24px;margin-block-start:24px;font-size:14px;position:relative;z-index:1}
 .page-socials a:hover,.page-email:hover{text-decoration:underline;text-underline-offset:5px}
-.page-contact-decoration{position:absolute;font-size:320px;line-height:1;inset-inline-end:-62px;bottom:-68px;color:#817099;opacity:.22;z-index:-1}
+.page-contact-info::before{content:"";position:absolute;inset:0;background:var(--atmo-stars) center / cover no-repeat;opacity:.26;z-index:-1}
 .page-form-panel{padding:44px;background:var(--atmo-light);border-radius:24px;min-width:0}
 .page-form-panel h2{margin-block:20px 32px}
 .page-form-panel form{display:grid;grid-template-columns:1fr 1fr;gap:24px 20px}
@@ -110,7 +109,6 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
  .page-lead{font-size:16px;line-height:1.85}
  .page-about-intro{grid-template-columns:1fr;gap:36px}
  .page-orbit-art{min-height:260px;width:min(100%,320px);justify-self:center}
- .page-art-star{font-size:84px}
  .page-art-type{font-size:44px}
  .page-background,.page-services{padding-block:48px}
  .page-background-grid,.page-service-grid{grid-template-columns:1fr;gap:36px}
@@ -125,7 +123,6 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
  .page-contact-section{padding-block-end:48px}
  .page-contact-grid{grid-template-columns:1fr;gap:20px}
  .page-contact-info,.page-form-panel{padding:30px 22px;border-radius:18px}
- .page-contact-decoration{font-size:220px;inset-inline-end:-45px;bottom:-50px}
  .page-contact-info>p:not(.page-eyebrow){max-width:none;font-size:16px}
  .page-email{margin-block-start:28px}
  .page-form-panel form{grid-template-columns:1fr}
@@ -139,3 +136,7 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
  .page-policy-section h2{font-size:24px;margin-block-end:18px}
  .page-policy-section p{font-size:15px;line-height:1.9}
 }
+
+/* Reuse the uploaded star field subtly on inner-page hero surfaces. */
+.atmo-pages .page-hero{position:relative;isolation:isolate}
+.atmo-pages .page-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--atmo-stars) center / cover no-repeat;opacity:.09;pointer-events:none}

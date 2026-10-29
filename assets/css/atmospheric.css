@@ -126,3 +126,32 @@ html[lang=ar]{--atmo-heading:'Zain Rounded','Rubik',sans-serif}
 }
 
 .atmo-step-icon{width:48px;height:48px;object-fit:contain}
+
+/* One coordinate space keeps the mist and laptop aligned at every desktop width. */
+:root{--atmo-stars:url('/assets/images/stars.png')}
+.atmo-contact{padding:0;overflow:hidden}
+.atmo-contact-stage{position:relative;isolation:isolate;width:min(100%,1440px);aspect-ratio:1440 / 1020;margin-inline:auto}
+.atmo-contact-stage>.atmo-transition{position:absolute;inset:0 0 auto;height:auto;aspect-ratio:3470 / 2129;z-index:0;background:transparent;pointer-events:none}
+.atmo-contact-stage>.atmo-transition img{object-fit:contain;object-position:center top}
+.atmo-contact-copy{position:absolute;inset:8% 6% auto;text-align:center;z-index:2;pointer-events:none}
+.atmo-contact-copy h2{font-size:clamp(32px,5.1vw,74px);text-shadow:0 2px 14px #111}
+.atmo-contact-stage>.atmo-computer{position:absolute;inset:20% 10% auto;width:80%;max-width:none;margin:0;z-index:1}
+.atmo-contact-stage .atmo-computer .atmo-visual{height:auto;aspect-ratio:2880 / 2048}
+.atmo-contact-stage .atmo-computer:has(.has-image) .atmo-screen{width:40%;left:37%;top:42%;gap:18px}
+.atmo-contact-stage .atmo-computer:has(.has-image) .atmo-screen h3{font-size:clamp(20px,2.1vw,30px)}
+.atmo-wall-invite{text-align:start;display:flex;align-items:center;justify-content:space-between;gap:32px;padding-block:32px 48px;border-top:1px solid #49424f}
+.atmo-wall-invite>div{min-width:0}
+.atmo-wall-invite p{font-size:14px;color:#c6becf;line-height:1.7}
+.atmo-wall-invite a{display:inline-block;font-family:var(--atmo-heading);font-size:clamp(20px,2.1vw,30px);margin-block-start:12px;line-height:1.4}
+.atmo-wall-invite a:hover{text-decoration:underline;text-underline-offset:6px}
+@media(max-width:680px){
+ .atmo-contact-stage{aspect-ratio:auto;padding-block-start:9vw}
+ .atmo-contact-copy{position:relative;inset:auto;width:calc(100% - 48px);margin-inline:auto}
+ .atmo-contact-copy h2{font-size:clamp(24px,5.5vw,36px)}
+ .atmo-contact-stage>.atmo-computer{position:relative;inset:auto;width:100%;margin:9vw auto 0}
+ .atmo-contact-stage .atmo-computer:has(.has-image) .atmo-screen{position:relative;inset:auto;width:calc(100% - 48px);transform:none;margin:20px auto 40px;gap:20px}
+ .atmo-contact-stage .atmo-computer:has(.has-image) .atmo-screen h3{font-size:30px}
+ .atmo-contact-stage .atmo-computer:has(.has-image) .atmo-button{font-size:14px;min-height:48px;padding:13px 26px}
+ .atmo-wall-invite{flex-direction:column;align-items:start;gap:14px;padding-block:28px 36px}
+ .atmo-wall-invite a{font-size:26px}
+}
