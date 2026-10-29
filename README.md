@@ -22,3 +22,9 @@ The contact form remains configured for Netlify Forms. Form delivery, domain/TLS
 English and Arabic strings are under `locales/`. Rubik is used for body text; Zain Rounded is used for Arabic headings and Caprasimo for English headings. See [ARTWORK-GUIDE.md](ARTWORK-GUIDE.md) for classifying projects, adding carousel images, replacing placeholders and operating the wall.
 
 No analytics, advertising, tracking pixels, fabricated testimonials, or fabricated product screenshots are included.
+
+## Inner page layouts and process icons
+
+About, Contact, Terms and Privacy are rendered by `lib/site/utility-pages.mjs` and styled with `assets/css/utility-pages.css`, using the homepage palette and bilingual heading fonts. Existing policy paragraphs and the Netlify contact form are retained.
+
+Add `01-understand.svg`, `02-explore.svg` and `03-refine.svg` to `assets/illustrations/` (or another project directory), then run the build. `lib/site/process-icons.mjs` finds these exact filenames automatically. Missing uploads produce a build warning and keep the existing SVG as a fallback.

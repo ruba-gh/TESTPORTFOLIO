@@ -5,9 +5,13 @@
   for(const heading of headings){
    heading.querySelectorAll('br').forEach(br=>br.replaceWith(document.createTextNode(' ')));
    heading.style.fontSize='';
-   const size=parseFloat(getComputedStyle(heading).fontSize);
+   let size=parseFloat(getComputedStyle(heading).fontSize);
    const available=heading.clientWidth;
-   if(available && heading.scrollWidth>available)heading.style.fontSize=`${Math.floor(size*available/heading.scrollWidth*100)/100}px`;
+   // Font hinting can make a proportional first pass a few pixels too wide.
+   for(let pass=0;available && heading.scrollWidth>available && pass<6;pass++){
+    size=Math.floor(size*available/heading.scrollWidth*.98*100)/100;
+    heading.style.fontSize=`${size}px`;
+   }
   }
  }
  function schedule(){cancelAnimationFrame(frame);frame=requestAnimationFrame(fit);}
