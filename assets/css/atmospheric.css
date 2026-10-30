@@ -246,9 +246,20 @@ html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
 .atmo-closing h2{width:100%}
 @media(max-width:680px){
  .atmo-closing-layout{grid-template-columns:minmax(0,1fr)}
- .atmo-process-grid{gap:20px}
- .atmo-step{padding:30px 22px;border:1px solid #b7acd1;border-radius:26px;background:rgba(245,243,238,.32);box-shadow:0 8px 24px #51436608;min-width:0}
- .atmo-step p{margin-inline:auto}
- .atmo-note-art{margin-block-start:-136px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
+ /* Shorter hero and invitation artwork avoid long empty runs on phones. */
+ .atmo-hero{height:500px}
+ .atmo-note-art{height:220px;margin-block-start:-150px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
+ html[lang=ar] .atmo-note-art{margin-block-start:-110px}
+ .atmo-note-prompt{padding-block:24px 40px}
+ /* Small organic backdrops sit behind the content rather than containing it. */
+ .atmo-process-grid{gap:24px}
+ .atmo-step{position:relative;isolation:isolate;overflow:visible;min-width:0;padding:18px 0;border:0;border-radius:0;background:none;box-shadow:none}
+ .atmo-step::before{content:"";position:absolute;z-index:-1;pointer-events:none;top:24px;left:50%;transform:translateX(-50%) rotate(-8deg);width:min(210px,72%);height:164px;border-radius:48% 52% 63% 37% / 37% 47% 53% 63%;background:linear-gradient(#b8accfa8,#b8accfa8),var(--atmo-stars) center / cover no-repeat;opacity:.7}
+ .atmo-step:nth-child(2)::before{transform:translateX(-50%) rotate(12deg);border-radius:58% 42% 40% 60% / 45% 58% 42% 55%}
+ .atmo-step:nth-child(3)::before{transform:translateX(-50%) rotate(-14deg)}
+ .atmo-step-icon{width:84px;height:84px;margin-block-end:16px}
+ .atmo-step p{font-size:13px;line-height:1.65;max-width:280px;margin:12px auto 0}
+
  .atmo-note-copy{z-index:1}
+ .atmo-note-copy>p:not(.atmo-note-eyebrow){text-shadow:0 1px 3px #292532,0 0 6px #292532}
 }
