@@ -203,11 +203,15 @@
       if (!form.checkValidity()) return;
       event.preventDefault();
       success.classList.remove('show'); error.classList.remove('show');
+      if (button.disabled) return;
       const currentLabel = normalize(button.textContent);
       button.disabled = true; button.textContent = t('Sending…'); button.setAttribute('aria-busy','true');
       const data = new URLSearchParams(new FormData(form));
       try {
-        const response = await fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:data.toString()});
+        // Netlify removes this attribute when it registers the form at deploy time.
+        // An unregistered static form can otherwise return HTML and a false success.
+        if (form.hasAttribute('data-netlify')) throw new Error('Form detection is not enabled');
+        const response = await fetch(form.getAttribute('action') || '/contact/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:data.toString()});
         if (!response.ok) throw new Error('Submission failed');
         form.reset(); success.classList.add('show'); success.focus();
       } catch (_) {

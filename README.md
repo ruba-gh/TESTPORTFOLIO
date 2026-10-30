@@ -28,3 +28,17 @@ No analytics, advertising, tracking pixels, fabricated testimonials, or fabricat
 About, Contact, Terms and Privacy are rendered by `lib/site/utility-pages.mjs` and styled with `assets/css/utility-pages.css`, using the homepage palette and bilingual heading fonts. Existing policy paragraphs and the Netlify contact form are retained.
 
 Add `01-understand.svg`, `02-explore.svg` and `03-refine.svg` to `assets/illustrations/` (or another project directory), then run the build. `lib/site/process-icons.mjs` finds these exact filenames automatically. Missing uploads produce a build warning and keep the existing SVG as a fallback.
+
+
+### Contact form delivery
+
+The form uses Netlify Forms, not SMTP in the browser. To activate delivery:
+
+1. In the Netlify project for TESTPORTFOLIO, open **Forms** and **Enable form detection**.
+2. Redeploy the site after enabling detection. Confirm the `contact` form appears in Forms. Netlify removes `data-netlify` from the deployed form when it registers it; the browser refuses to claim success for an unregistered form.
+3. In **Forms > Submission notifications**, add an **Email notification** for `contact` to `rub.gmd23@gmail.com`.
+4. Submit a real inquiry, confirm it appears under verified submissions, and confirm the email arrives (check spam too). A local mocked response cannot verify inbox delivery.
+
+The AJAX POST uses the form's `/contact/` action and keeps field values when delivery fails. The email field supplies the notification's Reply-to address.
+
+References: https://docs.netlify.com/manage/forms/setup/ and https://docs.netlify.com/manage/forms/notifications/

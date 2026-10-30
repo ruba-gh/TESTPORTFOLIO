@@ -237,3 +237,11 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
  .note-dialog form>.button{width:100%}
 }
 .wall-toolbar>div{width:100%}
+
+/* Compact, centered service cards on phones; retain the desktop columns. */
+@media(max-width:680px){
+ .page-service-grid{gap:20px}
+ .page-service{padding:30px 22px;border:0;border-radius:26px;background:#25212d;text-align:center;box-shadow:inset 0 0 0 1px #3b3347}
+ .page-service-icon{margin-inline:auto;margin-block-end:24px}
+ .page-service p{margin-inline:auto;max-width:340px}
+}

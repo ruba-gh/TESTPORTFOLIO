@@ -239,3 +239,16 @@ html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
  .atmo-hands.has-image{height:210px;inset-block-start:-50px}
  .atmo-hands.has-image img{opacity:.3}
 }
+
+/* Keep project closing copy inside its grid track before fitting headings. */
+.atmo-closing-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.atmo-closing-layout>div{min-width:0;width:100%}
+.atmo-closing h2{width:100%}
+@media(max-width:680px){
+ .atmo-closing-layout{grid-template-columns:minmax(0,1fr)}
+ .atmo-process-grid{gap:20px}
+ .atmo-step{padding:30px 22px;border:1px solid #b7acd1;border-radius:26px;background:rgba(245,243,238,.32);box-shadow:0 8px 24px #51436608;min-width:0}
+ .atmo-step p{margin-inline:auto}
+ .atmo-note-art{margin-block-start:-136px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
+ .atmo-note-copy{z-index:1}
+}
