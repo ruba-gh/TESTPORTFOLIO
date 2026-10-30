@@ -162,17 +162,17 @@ html[lang=ar]{--atmo-heading:'Zain Rounded','Rubik',sans-serif}
 .atmo-nav nav .atmo-nav-cta:hover{background:var(--atmo-white);text-decoration:none}
 /* A visitor-note invitation has its own composition before the footer. */
 .atmo-note-prompt{padding-block:76px 100px;background:var(--atmo-dark);color:var(--atmo-white)}
-.atmo-note-panel{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;min-height:450px;border-radius:28px;overflow:hidden;background:#292532;position:relative;isolation:isolate}
+.atmo-note-panel{direction:ltr;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;min-height:450px;border-radius:28px;overflow:hidden;background:#292532;position:relative;isolation:isolate}
 .atmo-note-panel::before{content:"";position:absolute;inset:0;background:var(--atmo-stars) center / cover no-repeat;opacity:.17;z-index:-1;pointer-events:none}
 .atmo-note-copy{padding:56px 0 56px 64px;min-width:0;position:relative;z-index:1}
-html[dir=rtl] .atmo-note-copy{padding:56px 64px 56px 0}
+html[dir=rtl] .atmo-note-copy{direction:rtl;text-align:right;padding:56px 64px 56px 0}
 .atmo-note-eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cdc4da}
 html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
 .atmo-note-copy h2{font-size:clamp(30px,3.2vw,44px);margin-block:24px}
 .atmo-note-copy>p:not(.atmo-note-eyebrow){font-size:17px;line-height:1.85;max-width:400px;color:#d3cbdf}
 .atmo-note-copy .atmo-button{margin-block-start:30px}
-.atmo-note-art{height:450px;align-self:end;min-width:0;display:flex;justify-content:center;align-items:end;overflow:hidden}
-.atmo-note-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.atmo-note-art{height:450px;align-self:end;min-width:0;position:relative;overflow:hidden}
+.atmo-note-art img{display:block;position:absolute;right:-1px;bottom:0;width:auto;height:100%;max-width:none;margin:0;object-fit:contain;object-position:right bottom}
 /* The footer groups navigation and policies, separate from the invitation above. */
 .atmo-footer{width:100%;max-width:none;margin:0;padding-block:56px 28px;background:#0b0b0e;border-top:1px solid #29242f;color:#bdb5c7}
 .atmo-footer-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:40px}
@@ -195,11 +195,11 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
  .atmo-nav .atmo-brand{font-size:23px}
  .atmo-note-prompt{padding-block:40px 56px}
  .atmo-note-panel{grid-template-columns:1fr;min-height:0;border-radius:20px}
- .atmo-note-copy,html[dir=rtl] .atmo-note-copy{padding:32px 26px 0}
+ .atmo-note-copy,html[dir=rtl] .atmo-note-copy{direction:rtl;text-align:right;padding:32px 26px 0}
  .atmo-note-copy h2{font-size:30px;margin-block:20px}
  .atmo-note-copy>p:not(.atmo-note-eyebrow){font-size:15px}
  .atmo-note-art{height:300px;margin-block-start:24px}
- .atmo-note-art img{width:85%;margin-inline-start:auto}
+ .atmo-note-art img{width:auto;margin:0}
  .atmo-note-copy .atmo-button{font-size:13px;padding:12px 20px;margin-block-start:24px}
  .atmo-footer{padding-block:36px 24px}
  .atmo-footer-top{grid-template-columns:1fr auto;gap:24px}
@@ -208,3 +208,9 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
  .atmo-footer-bottom{margin-block-start:28px;gap:18px;flex-wrap:wrap;font-size:11px}
  .atmo-footer-bottom nav{gap:20px}
 }
+
+/* Blend the hero into Projects, and the process section into the closing mist. */
+:root{--atmo-section-fade:clamp(100px,12vw,180px)}
+.atmo-hero::after{content:"";position:absolute;inset:auto 0 -1px;height:var(--atmo-section-fade);background:linear-gradient(transparent,var(--atmo-lavender));z-index:1;pointer-events:none}
+.atmo-contact-stage{isolation:auto}
+.atmo-contact::before{content:"";position:absolute;inset:-1px 0 auto;height:var(--atmo-section-fade);background:linear-gradient(var(--atmo-lavender),transparent);z-index:1;pointer-events:none}
