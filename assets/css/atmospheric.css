@@ -195,7 +195,7 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
  .atmo-nav .atmo-brand{font-size:23px}
  .atmo-note-prompt{padding-block:40px 56px}
  .atmo-note-panel{grid-template-columns:1fr;min-height:0;border-radius:20px}
- .atmo-note-copy,html[dir=rtl] .atmo-note-copy{direction:rtl;text-align:right;padding:32px 26px 0}
+ .atmo-note-copy,html[dir=rtl] .atmo-note-copy{padding:32px 26px 0}
  .atmo-note-copy h2{font-size:30px;margin-block:20px}
  .atmo-note-copy>p:not(.atmo-note-eyebrow){font-size:15px}
  .atmo-note-art{height:300px;margin-block-start:24px}
@@ -214,3 +214,15 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
 .atmo-hero::after{content:"";position:absolute;inset:auto 0 -1px;height:var(--atmo-section-fade);background:linear-gradient(transparent,var(--atmo-lavender));z-index:1;pointer-events:none}
 .atmo-contact-stage{isolation:auto}
 .atmo-contact::before{content:"";position:absolute;inset:-1px 0 auto;height:var(--atmo-section-fade);background:linear-gradient(var(--atmo-lavender),transparent);z-index:1;pointer-events:none}
+
+/* Keep copy direction independent from the artwork's fixed left-to-right layout. */
+html[lang=en] .atmo-note-copy{direction:ltr;text-align:left}
+html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
+.atmo-button,.atmo-nav-cta,.button,button{direction:inherit;text-align:center}
+.atmo-site input[type=email],.atmo-site input[type=url],.atmo-site [dir=ltr]{direction:ltr}
+.atmo-site textarea{unicode-bidi:plaintext}
+.atmo-site :is(ol,ul){text-align:center;list-style-position:inside;padding-inline:0}
+.atmo-step,.atmo-process>h2{text-align:center}
+.atmo-step-icon{margin-inline:auto}
+.atmo-step p{margin-inline:auto}
+.atmo-policy-number,.page-policy-number,.atmo-step-number{text-align:center;direction:ltr}

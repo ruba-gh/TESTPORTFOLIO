@@ -57,6 +57,7 @@
     // Explicit paired text is local to each field: repeated English wording can
     // have different Arabic translations without global dictionary collisions.
     document.querySelectorAll('[data-copy-en]').forEach(el => {
+      el.lang=lang;el.dir=lang==='ar'?'rtl':'ltr';
       let value=el.getAttribute('data-copy-'+lang) || el.getAttribute('data-copy-en');
       if(el.closest('h1,h2,h3'))value=value.replace(/\s+/g,' ').trim();
       const nodes=value.split('\n').flatMap((line,i)=>i?[document.createElement('br'),document.createTextNode(line)]:[document.createTextNode(line)]);
