@@ -21,7 +21,7 @@ await write('data/generated-project-routes.json',JSON.stringify(projects.map(p=>
 const utilities=JSON.parse(await fs.readFile(path.join(root,'data/utility-pages.json'),'utf8'));
 for(const [route,page] of Object.entries(utilities)){
  let index=0;
- const modern=['about','contact','privacy','terms'].includes(route);
+ const modern=['about','contact','privacy','terms','wall'].includes(route);
  // Retain useful forms, note-wall hooks, policies and text, but replace any old imagery.
  const main=modern?modernUtilityPage(route,page):page.main.replace(/<picture\b[\s\S]*?<\/picture>|<img\b[^>]*>/gi,markup=>{
   const id=`${route}-visual-${++index}`;return placeholder(id);

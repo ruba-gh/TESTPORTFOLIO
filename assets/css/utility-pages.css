@@ -176,3 +176,64 @@ html[dir=rtl] .page-eyebrow{letter-spacing:0}
 
 .page-cap-art{position:relative;isolation:isolate}
 .page-cap-art img{mask-image:linear-gradient(#000 54%,rgba(0,0,0,.65) 66%,transparent 88%)}
+
+.contact-icon-links{display:flex;gap:14px;flex-wrap:wrap;margin-block-start:36px}
+.contact-icon-links a{display:flex;flex-direction:column;align-items:center;gap:10px;justify-content:center;min-width:78px;padding:16px 12px;border:1px solid #62576f;border-radius:16px;font-size:12px;color:var(--atmo-white)}
+.contact-icon-links a:hover{background:#494055;border-color:#b9a8d0}
+/* A visitor book with readable paper notes and a separate composition preview. */
+.wall-hero{padding-bottom:48px!important}
+.wall-space{padding-block:20px 100px;min-height:360px}
+.wall-toolbar{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-block-end:30px}
+.wall-toolbar>div{min-width:0}
+.wall-toolbar h2{font-size:32px}
+.wall-toolbar p{font-size:15px;color:#51465e;margin-block-start:12px}
+.atmo-pages .wall-space .button,.note-dialog .button{border:0;border-radius:999px;background:#24202d;color:#f3efea;min-height:48px;padding:13px 26px;font:500 14px/1.5 var(--atmo-font);cursor:pointer}
+.wall-status{font-size:14px;color:#62546c;line-height:1.7;margin-block:12px 24px!important}
+.note-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;align-items:start}
+.sticky-note{position:relative;padding:32px 26px 26px;min-height:230px;color:#322d33;border-radius:3px 3px 20px 3px;box-shadow:0 10px 22px #29213514;overflow-wrap:anywhere}
+.sticky-note::before{content:"";position:absolute;inset:0 0 auto;height:12px;background:#fff2}
+.sticky-note.yellow{background:#f1e3a6}.sticky-note.peach{background:#efcfba}.sticky-note.blue{background:#c9dce3}
+.note-message{font:18px/1.8 var(--atmo-font);white-space:pre-wrap;unicode-bidi:plaintext;text-align:start}
+.note-byline{font:12px/1.6 var(--atmo-font);margin-block-start:28px!important;color:#5d5054;text-align:start}
+.note-delete{position:absolute;inset:8px 8px auto auto;width:32px;height:32px;border:0;border-radius:50%;background:#fff7;color:#322d33;opacity:0}
+.sticky-note:is(:hover,:focus-within,.editing) .note-delete{opacity:1}
+.empty-wall{grid-column:1 / -1;border:1px dashed #a89cbb;border-radius:20px;padding:64px 24px;text-align:center;font-size:18px;color:#5c4d6b}
+.wall-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-block-start:36px;font-size:12px;color:#61536d}
+.wall-refresh{border:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;min-height:44px;cursor:pointer}
+.note-dialog{width:min(860px,calc(100% - 40px));max-height:calc(100dvh - 40px);padding:32px;border:0;border-radius:24px;background:#f5f3ee;color:#24202d;overflow:auto;font-family:var(--atmo-font)}
+.note-dialog::backdrop{background:#15121ed9;backdrop-filter:blur(5px)}
+.dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.note-dialog .dialog-heading h2{font-size:30px;flex:1;min-width:0}
+.icon-button{border:1px solid #c6becf;border-radius:50%;background:transparent;color:inherit;width:40px;height:40px;font:24px/1 var(--atmo-font);flex-shrink:0;cursor:pointer}
+.dialog-intro{font-size:14px;line-height:1.8;color:#65596d;margin-block:16px 28px!important}
+.compose-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+.compose-fields,.compose-preview{min-width:0}
+.note-dialog label,.note-dialog legend{font-size:13px;line-height:1.7}
+.note-dialog textarea,.note-dialog input:not([type=radio]){display:block;width:100%;padding:12px;border:1px solid #c9c0d0;border-radius:10px;background:#fffdfa;color:#24202d;font:16px/1.7 var(--atmo-font);margin-block:8px 20px}
+.note-dialog textarea{min-height:140px;resize:vertical}
+.compose-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px}
+.note-colors{display:flex;gap:8px;flex-wrap:wrap;border:0;padding:0;margin:0}
+.note-colors legend{margin-block-end:10px}
+.swatch{display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:8px;cursor:pointer}
+.swatch.yellow{background:#f1e3a6}.swatch.peach{background:#efcfba}.swatch.blue{background:#c9dce3}
+.swatch input{accent-color:#524160}
+.compose-preview{padding:20px;background:#e9e4f0;border-radius:16px;align-self:start}
+.compose-preview>p{font-size:11px;letter-spacing:.06em;margin-block-end:16px!important;color:#65596d}
+.compose-preview .sticky-note{min-height:220px;padding:26px 20px}
+.form-feedback{font-size:13px;line-height:1.7;color:#923e43;margin-block:18px!important}
+.note-dialog>.button,.note-dialog form>.button{margin-block-start:8px}
+.note-dialog button:disabled{opacity:.6;cursor:wait}
+#delete-dialog{max-width:430px}
+.wall-more{display:block;margin:32px auto}
+@media(max-width:680px){
+ .contact-icon-links{gap:12px}.contact-icon-links a{flex:1;min-width:70px}
+ .wall-toolbar{align-items:start;flex-direction:column;gap:22px}.wall-toolbar h2{font-size:28px}
+ .wall-space{padding-bottom:56px}.note-board{grid-template-columns:1fr;gap:20px}
+ .sticky-note{min-height:190px}.wall-foot{align-items:start;gap:16px}
+ .note-dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px);padding:24px 20px;border-radius:20px}
+ .note-dialog .dialog-heading h2{font-size:25px}
+ .compose-layout{grid-template-columns:1fr;gap:24px}.compose-preview{padding:18px}
+ .compose-preview .sticky-note{min-height:150px}
+ .note-dialog form>.button{width:100%}
+}
+.wall-toolbar>div{width:100%}

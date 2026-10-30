@@ -7,6 +7,16 @@
   const form = document.getElementById('note-form'), removeForm = document.getElementById('delete-note-form');
   const composeFeedback = document.querySelector('[data-compose-feedback]'), deleteFeedback = document.querySelector('[data-delete-feedback]');
   const message = document.getElementById('note-message');
+  const updatePreview=()=>{
+    const preview=document.querySelector('[data-note-preview]');if(!preview)return;
+    const color=new FormData(form).get('color');preview.className='sticky-note '+(['yellow','peach','blue'].includes(color)?color:'yellow');
+    preview.querySelector('[data-preview-message]').textContent=message.value.trim()||t('Your note will appear here.');
+    preview.querySelector('[data-preview-name]').textContent='— '+(form.elements.name.value.trim()||t('Anonymous'));
+  };
+  form.addEventListener('input',updatePreview);form.addEventListener('change',updatePreview);
+  form.addEventListener('reset',()=>queueMicrotask(updatePreview));
+  document.addEventListener('portfolio-language-change',updatePreview);
+  updatePreview();
   let revision = 0;
   let notes = [], selectedId = null, loaded = false, busy = false, shown = location.pathname.startsWith('/wall') ? 12 : 4;
   let previousFocus = null;
@@ -32,7 +42,7 @@
     else wall.querySelector('[data-compose]').focus();
     if(dialog===remove){selectedId=null;removeForm.reset();deleteFeedback.textContent='';}
   }));
-  document.querySelector('[data-compose]').addEventListener('click',()=>{composeFeedback.textContent='';showDialog(compose);});
+  document.querySelector('[data-compose]').addEventListener('click',()=>{composeFeedback.textContent='';updatePreview();showDialog(compose);});
   message.addEventListener('input',()=>document.getElementById('note-count').textContent=`${message.value.length} / 280`);
   const reveal = card => {
     board.querySelectorAll('.editing').forEach(el=>{if(el!==card)el.classList.remove('editing');});
@@ -107,5 +117,6 @@
   document.addEventListener('portfolio-language-change',()=>{if(loaded)render();load();});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
   setInterval(()=>{if(!document.hidden)load();},60000);
+  document.querySelector('[data-wall-retry]')?.addEventListener('click',load);
   load();
 })();

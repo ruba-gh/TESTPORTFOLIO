@@ -226,3 +226,16 @@ html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
 .atmo-step-icon{margin-inline:auto}
 .atmo-step p{margin-inline:auto}
 .atmo-policy-number,.page-policy-number,.atmo-step-number{text-align:center;direction:ltr}
+
+@media(max-width:680px){
+ /* Start the copy closer to navigation and fade out the mist's cropped top edge. */
+ .atmo-hero{height:660px}
+ .atmo-hero-copy{padding-block-start:52px;gap:20px}
+ .atmo-hero-mist{inset:0;height:100%;mask-image:linear-gradient(transparent 6%,#000 42%)}
+ .atmo-hero-mist img{object-fit:cover;object-position:center bottom}
+}
+@media(max-width:680px){
+ .atmo-hero-copy{padding-block-start:76px}
+ .atmo-hands.has-image{height:210px;inset-block-start:-50px}
+ .atmo-hands.has-image img{opacity:.3}
+}
