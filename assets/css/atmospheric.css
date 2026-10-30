@@ -168,10 +168,8 @@ html[lang=ar]{--atmo-heading:'Zain Rounded','Rubik',sans-serif}
 .atmo-note-panel::before{content:"";position:absolute;inset:0;background:var(--atmo-stars) center / cover no-repeat;opacity:.17;z-index:-1;pointer-events:none}
 .atmo-note-copy{padding:56px 0 56px 64px;min-width:0;position:relative;z-index:1}
 html[dir=rtl] .atmo-note-copy{direction:rtl;text-align:right;padding:56px 64px 56px 0}
-.atmo-note-eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cdc4da}
-html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
-.atmo-note-copy h2{font-size:clamp(30px,3.2vw,44px);margin-block:24px}
-.atmo-note-copy>p:not(.atmo-note-eyebrow){font-size:17px;line-height:1.85;max-width:400px;color:#d3cbdf}
+.atmo-note-copy h2{font-size:clamp(30px,3.2vw,44px);margin-block:0 24px}
+.atmo-note-copy>p{font-size:17px;line-height:1.85;max-width:400px;color:#d3cbdf}
 .atmo-note-copy .atmo-button{margin-block-start:30px}
 .atmo-note-art{height:450px;align-self:end;min-width:0;position:relative;overflow:hidden}
 .atmo-note-art img{display:block;position:absolute;right:-1px;bottom:0;width:auto;height:100%;max-width:none;margin:0;object-fit:contain;object-position:right bottom}
@@ -198,8 +196,8 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
  .atmo-note-prompt{padding-block:40px 56px}
  .atmo-note-panel{grid-template-columns:1fr;min-height:0;border-radius:20px}
  .atmo-note-copy,html[dir=rtl] .atmo-note-copy{padding:32px 26px 0}
- .atmo-note-copy h2{font-size:30px;margin-block:20px}
- .atmo-note-copy>p:not(.atmo-note-eyebrow){font-size:15px}
+ .atmo-note-copy h2{font-size:30px;margin-block:0 20px}
+ .atmo-note-copy>p{font-size:15px}
  .atmo-note-art{height:300px;margin-block-start:24px}
  .atmo-note-art img{width:auto;margin:0}
  .atmo-note-copy .atmo-button{font-size:13px;padding:12px 20px;margin-block-start:24px}
@@ -217,9 +215,11 @@ html[dir=rtl] .atmo-note-eyebrow{letter-spacing:0}
 .atmo-contact-stage{isolation:auto}
 .atmo-contact::before{content:"";position:absolute;inset:-1px 0 auto;height:var(--atmo-section-fade);background:linear-gradient(var(--atmo-lavender),transparent);z-index:1;pointer-events:none}
 
-/* Keep copy direction independent from the artwork's fixed left-to-right layout. */
+/* Mirror the invitation composition with the reading direction. */
 html[lang=en] .atmo-note-copy{direction:ltr;text-align:left}
+html[lang=ar] .atmo-note-panel{direction:rtl}
 html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
+html[lang=ar] .atmo-note-art img{left:-1px;right:auto;transform:scaleX(-1)}
 .atmo-button,.atmo-nav-cta,.button,button{direction:inherit;text-align:center}
 .atmo-site input[type=email],.atmo-site input[type=url],.atmo-site [dir=ltr]{direction:ltr}
 .atmo-site textarea{unicode-bidi:plaintext}
@@ -251,7 +251,7 @@ html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
  /* Shorter hero and invitation artwork avoid long empty runs on phones. */
  .atmo-hero{height:500px}
  .atmo-note-art{height:220px;margin-block-start:-150px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
- html[lang=ar] .atmo-note-art{margin-block-start:-110px}
+ html[lang=ar] .atmo-note-art{margin-block-start:-60px}
  .atmo-note-prompt{padding-block:24px 40px}
  /* Small organic backdrops sit behind the content rather than containing it. */
  .atmo-process-grid{gap:24px}
@@ -263,5 +263,5 @@ html[lang=ar] .atmo-note-copy{direction:rtl;text-align:right}
  .atmo-step p{font-size:13px;line-height:1.65;max-width:280px;margin:12px auto 0}
 
  .atmo-note-copy{z-index:1}
- .atmo-note-copy>p:not(.atmo-note-eyebrow){text-shadow:0 1px 3px #292532,0 0 6px #292532}
+ .atmo-note-copy>p{text-shadow:0 1px 3px #292532,0 0 6px #292532}
 }
