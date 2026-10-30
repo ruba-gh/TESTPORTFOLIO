@@ -77,6 +77,11 @@
       button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
     });
     document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+    // Preserve each locale's wording while keeping all action labels arrow-free.
+    document.querySelectorAll('button,.atmo-button,.button,.atmo-nav-cta').forEach(action=>{
+      const walker=document.createTreeWalker(action,NodeFilter.SHOW_TEXT);
+      let node;while((node=walker.nextNode()))node.nodeValue=node.nodeValue.replace(/[\u2190-\u21ff\u27f0-\u27ff]/g,'').trim();
+    });
 
     const form = document.querySelector('[data-contact-form]');
     if (form) setupValidationMessages(form, lang);
