@@ -9,7 +9,8 @@
   };
   const go=(index,instant=false)=>{
    index=Math.max(0,Math.min(panels.length-1,index));select(index);
-   const delta=panels[index].getBoundingClientRect().left-track.getBoundingClientRect().left;
+   const panel=panels[index].getBoundingClientRect(),viewport=track.getBoundingClientRect();
+   const delta=document.documentElement.dir==='rtl'?panel.right-viewport.right:panel.left-viewport.left;
    programmed=Math.abs(delta)>1;
    track.scrollBy({left:delta,behavior:instant||matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   };
@@ -34,9 +35,16 @@
    clearTimeout(settleTimer);settleTimer=setTimeout(()=>{programmed=false;update();},150);
   },{passive:true});
   ['pointerdown','wheel','touchstart'].forEach(type=>track.addEventListener(type,()=>{programmed=false;},{passive:true}));
-  const realign=()=>{const index=current;requestAnimationFrame(()=>go(index,true));};
+  const realign=()=>{
+   const index=current;
+   // Direction changes can emit scroll events before the next layout frame.
+   // Keep those events from replacing the selected collection.
+   programmed=true;clearTimeout(settleTimer);cancelAnimationFrame(frame);
+   frame=requestAnimationFrame(()=>go(index,true));
+  };
   window.addEventListener('resize',realign);
   document.addEventListener('portfolio-language-change',realign);
-  select(0);
+  go(0,true);
+  realign();
  });
 })();
