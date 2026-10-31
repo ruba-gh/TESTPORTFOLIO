@@ -32,10 +32,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma",
-      "SwiftUI"
-    ],
+    "tools": ["Figma", "SwiftUI"],
     "deliverables": {
       "en": "Research, Budget Flow, UI Screens, Prototype",
       "ar": "بحث، مسار الميزانية، شاشات واجهة، نموذج تفاعلي"
@@ -53,7 +50,7 @@
           "en": "View presentation PDF ↗",
           "ar": "عرض ملف PDF ↗"
         },
-        "url": "https://rubalghamdi.com/assets/budgiePresentation.pdf"
+        "url": "https://www.figma.com/proto/aNv23zcU2d1qw518JxVEBc/Budgie?node-id=84-1979&t=GmnAKYeZwDEZ57SJ-1"
       },
       {
         "label": {
@@ -324,9 +321,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "User Flow, Service Concept, UI Screens, Prototype",
       "ar": "مسار المستخدم، فكرة الخدمة، شاشات واجهة، نموذج تفاعلي"
@@ -549,9 +544,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "IA, User Flow, Design System, UI Screens",
       "ar": "هيكلة معلومات، مسار مستخدم، نظام تصميم، شاشات واجهة"
@@ -774,9 +767,7 @@
       "en": "UX/UI Design",
       "ar": "تصميم تجربة وواجهات"
     },
-    "tools": [
-      "Figma"
-    ],
+    "tools": ["Figma"],
     "deliverables": {
       "en": "Research, User Flow, Design System, UI Screens, Prototype",
       "ar": "بحث، مسار مستخدم، نظام تصميم، شاشات واجهة، نموذج تفاعلي"
