@@ -247,3 +247,22 @@
  .page-service h3{margin-block-end:12px}
  .page-service p{margin-inline:auto;max-width:280px;font-size:13px;line-height:1.65}
 }
+
+/* CV sections distinguish experience, education and skills without repeating the introduction. */
+.page-resume-list{display:grid;gap:32px}
+.page-resume-entry{padding-block:0 28px;border-bottom:1px solid #bcb2cb;min-width:0}
+.page-resume-entry h3{font-size:24px;margin-bottom:12px}
+.page-resume-entry .page-resume-meta{font-size:13px;color:#655975;line-height:1.8;margin-bottom:16px}
+.page-resume-entry p{font-size:16px;line-height:1.9}
+.page-skills{padding-block:80px;background:var(--atmo-light)}
+.page-skills h2{margin-bottom:36px}
+.page-resume-skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.page-resume-skills article{min-width:0}
+.page-resume-skills h3{font-size:24px;margin-bottom:16px}
+.page-resume-skills p{font-size:15px;line-height:1.9;color:#514b60;overflow-wrap:anywhere}
+.wall-toolbar{justify-content:flex-start}
+@media(max-width:680px){
+ .page-resume-list{gap:24px}.page-resume-entry p{font-size:15px}
+ .page-skills{padding-block:48px}.page-resume-skills{grid-template-columns:1fr;gap:28px}
+ .wall-toolbar{align-items:flex-start}
+}

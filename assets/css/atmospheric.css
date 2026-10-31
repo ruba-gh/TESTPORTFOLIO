@@ -250,8 +250,8 @@ html[lang=ar] .atmo-note-art img{left:-1px;right:auto;transform:scaleX(-1)}
  .atmo-closing-layout{grid-template-columns:minmax(0,1fr)}
  /* Shorter hero and invitation artwork avoid long empty runs on phones. */
  .atmo-hero{height:500px}
- .atmo-note-art{height:220px;margin-block-start:-150px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
- html[lang=ar] .atmo-note-art{margin-block-start:-60px}
+ .atmo-note-art{height:220px;margin-block-start:-35px;z-index:0;pointer-events:none;mask-image:linear-gradient(transparent,#000 18%)}
+ html[lang=ar] .atmo-note-art{margin-block-start:-35px}
  .atmo-note-prompt{padding-block:24px 40px}
  /* Small organic backdrops sit behind the content rather than containing it. */
  .atmo-process-grid{gap:24px}
@@ -265,3 +265,7 @@ html[lang=ar] .atmo-note-art img{left:-1px;right:auto;transform:scaleX(-1)}
  .atmo-note-copy{z-index:1}
  .atmo-note-copy>p{text-shadow:0 1px 3px #292532,0 0 6px #292532}
 }
+
+/* Explicit tabs avoid direction-dependent scroll restoration selecting Websites. */
+.atmo-work-track{display:block;overflow:visible;scroll-snap-type:none}
+.atmo-work-panel[hidden]{display:none}

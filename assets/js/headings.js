@@ -18,6 +18,7 @@
  const observer=new ResizeObserver(schedule);
  for(const heading of headings)if(heading.parentElement)observer.observe(heading.parentElement);
  document.addEventListener('portfolio-language-change',()=>{schedule();document.fonts.ready.then(schedule);});
+ document.addEventListener('portfolio-work-change',schedule);
  window.addEventListener('resize',schedule);
  document.fonts.ready.then(schedule);
  schedule();

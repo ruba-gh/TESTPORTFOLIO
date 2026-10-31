@@ -1,50 +1,31 @@
 (() => {
  document.querySelectorAll('[data-work-pages]').forEach(root=>{
   const track=root.querySelector('[data-work-track]'),tabs=[...root.querySelectorAll('[data-work-tab]')],panels=[...root.querySelectorAll('[data-work-panel]')];
-  let current=0,frame=0,programmed=false,settleTimer;
+  let current=0,touch;
   const select=index=>{
-   current=index;
-   tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;});
-   panels.forEach((panel,i)=>{panel.inert=i!==index;panel.setAttribute('aria-hidden',String(i!==index));});
+   current=Math.max(0,Math.min(panels.length-1,index));
+   tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===current));tab.tabIndex=i===current?0:-1;});
+   panels.forEach((panel,i)=>{panel.hidden=i!==current;panel.inert=i!==current;panel.setAttribute('aria-hidden',String(i!==current));});
+   document.dispatchEvent(new Event('portfolio-work-change'));
   };
-  const go=(index,instant=false)=>{
-   index=Math.max(0,Math.min(panels.length-1,index));select(index);
-   const panel=panels[index].getBoundingClientRect(),viewport=track.getBoundingClientRect();
-   const delta=document.documentElement.dir==='rtl'?panel.right-viewport.right:panel.left-viewport.left;
-   programmed=Math.abs(delta)>1;
-   track.scrollBy({left:delta,behavior:instant||matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
-  };
-  tabs.forEach((tab,i)=>tab.addEventListener('click',()=>go(i)));
-  const keyboard=event=>{
+  tabs.forEach((tab,i)=>tab.addEventListener('click',()=>select(i)));
+  root.addEventListener('keydown',event=>{
    if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
    if(event.target!==track&&!event.target.closest('[data-work-tab]'))return;
-   event.preventDefault();const rtl=document.documentElement.dir==='rtl';
-   const next=event.key==='Home'?0:event.key==='End'?panels.length-1:current+(event.key==='ArrowRight'?1:-1)*(rtl?-1:1);
-   go(next);if(event.target!==track)tabs[current].focus();
-  };
-  root.addEventListener('keydown',keyboard);
-  const update=()=>{
-   cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{
-    const edge=track.getBoundingClientRect().left;
-    const distances=panels.map(panel=>Math.abs(panel.getBoundingClientRect().left-edge));
-    select(distances.indexOf(Math.min(...distances)));
-   });
-  };
-  track.addEventListener('scroll',()=>{
-   if(!programmed)update();
-   clearTimeout(settleTimer);settleTimer=setTimeout(()=>{programmed=false;update();},150);
+   event.preventDefault();
+   const rtl=document.documentElement.dir==='rtl';
+   select(event.key==='Home'?0:event.key==='End'?panels.length-1:current+(event.key==='ArrowRight'?1:-1)*(rtl?-1:1));
+   if(event.target!==track)tabs[current].focus();
+  });
+  track.addEventListener('touchstart',event=>{const p=event.touches[0];touch={x:p.clientX,y:p.clientY};},{passive:true});
+  track.addEventListener('touchend',event=>{
+   if(!touch)return;
+   const p=event.changedTouches[0],dx=p.clientX-touch.x,dy=p.clientY-touch.y;touch=null;
+   if(Math.abs(dx)<48||Math.abs(dx)<=Math.abs(dy))return;
+   select(current+(dx<0?1:-1)*(document.documentElement.dir==='rtl'?-1:1));
   },{passive:true});
-  ['pointerdown','wheel','touchstart'].forEach(type=>track.addEventListener(type,()=>{programmed=false;},{passive:true}));
-  const realign=()=>{
-   const index=current;
-   // Direction changes can emit scroll events before the next layout frame.
-   // Keep those events from replacing the selected collection.
-   programmed=true;clearTimeout(settleTimer);cancelAnimationFrame(frame);
-   frame=requestAnimationFrame(()=>go(index,true));
-  };
-  window.addEventListener('resize',realign);
-  document.addEventListener('portfolio-language-change',realign);
-  go(0,true);
-  realign();
+  track.addEventListener('touchcancel',()=>{touch=null;},{passive:true});
+  // Always start with Apps; locale and viewport changes never select a different tab.
+  select(0);
  });
 })();

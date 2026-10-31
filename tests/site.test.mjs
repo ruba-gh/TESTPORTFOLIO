@@ -39,3 +39,14 @@ test('image rendering selects supplied src and paired alt, never provenance refe
  const a=assets['budgie-prototype-1'],original=a.src;a.src='/assets/images/supplied.png';try{const html=placeholder('budgie-prototype-1');assert.ok(html.includes('src="/assets/images/supplied.png"'));assert.ok(html.includes(`alt="${a.alt.en}"`));assert.ok(html.includes(`data-alt-ar="${a.alt.ar}"`));assert.ok(!html.includes('rubalghamdi.com/assets/'));}finally{a.src=original;}
 });
 test('every configured local image resolves to an uploaded asset',()=>{for(const asset of Object.values(assets).filter(a=>a.src))assert.ok(existsSync(new URL('..'+decodeURIComponent(asset.src),import.meta.url)),asset.src);});
+
+test('Apps is visible and Websites is hidden before browser scripts or locale changes',()=>{
+ const html=homepage();
+ const apps=html.match(/<section[^>]+id="work-panel-apps"[^>]*>/)?.[0];
+ const websites=html.match(/<section[^>]+id="work-panel-websites"[^>]*>/)?.[0];
+ assert.ok(apps);assert.ok(websites);
+ assert.doesNotMatch(apps,/\shidden(?:\s|>)/);
+ assert.match(apps,/aria-hidden="false"/);
+ assert.match(websites,/\shidden(?:\s|>)/);
+ assert.match(websites,/aria-hidden="true"/);
+});
