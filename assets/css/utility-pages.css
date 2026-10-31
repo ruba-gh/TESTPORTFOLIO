@@ -266,3 +266,8 @@
  .page-skills{padding-block:48px}.page-resume-skills{grid-template-columns:1fr;gap:28px}
  .wall-toolbar{align-items:flex-start}
 }
+
+@media(max-width:680px){
+ .page-resume-skills{gap:16px}
+ .page-resume-skills article{padding:24px 20px;border:1px solid #bcb2cb;border-radius:20px;background:#fbfaf7}
+}
